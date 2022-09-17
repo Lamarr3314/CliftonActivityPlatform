@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 #teams {
   display: flex;
@@ -34,7 +34,7 @@
   touch-action: manipulation;
 }
 
-#SportsEvent:before {
+#SportsEvent:before{
   content: "";
   background: linear-gradient(
     45deg,
@@ -100,4 +100,69 @@ body {
     padding-left: 0px;
     padding-right: 0px;
   }
+}
+#DarkMode {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+#DarkMode input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #c53211;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #dbc7a6de;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #dbc7a6de;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+#DarkMode{
+    z-index: 50%;
+    position: fixed;
 }

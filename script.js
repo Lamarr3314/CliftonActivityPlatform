@@ -1,4 +1,7 @@
 let container = document.getElementById("EventContainer");
+let DarkMode=document.getElementById("DarkMode");
+let light=true;
+let dark=false;
 window.addEventListener("load", function () {
     newGame("Boys Basketball", "Clifton", 32, "Montclair", 25, "9/18", "3PM", "@Ridgewood");
     newGame("Boys Basketball", "Clifton", 32, "Montclair", 25, "9/18", "3PM", "@Ridgewood");
@@ -48,3 +51,12 @@ function newGame(sport, team1_name, team1_score, team2_name, team2_score, info_d
   container.appendChild(sportsEvent);
   sportsEvent.appendChild(information);
 }
+DarkMode.onclick = function() {
+    if(document.querySelector(".slider")){
+        document.body.style.backgroundColor = "#dbc7a6de";
+    }
+    if(document.querySelector("input:checked + .slider")){
+        document.body.style.backgroundColor = "black";
+    }
+    console.log("Clicked");
+};

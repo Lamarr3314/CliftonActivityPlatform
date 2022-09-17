@@ -1,0 +1,103 @@
+#information {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#teams {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  font-family: "Dosis", sans-serif;
+}
+#sport {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: "Dosis", sans-serif;
+}
+#SportsEvent {
+  margin-top: 30px;
+  margin-left: 15%;
+  margin-right: 15%;
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 450px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#SportsEvent:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #c53211,
+    #c54211,
+    #c55211,
+    #c56211,
+    #c57211,
+    #c58211,
+    #c59211,
+    #c52211,
+    #c51211
+  );
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 13px);
+  height: calc(100% + 13px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 45px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+#SportsEvent:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #df3d1c;
+  left: 0;
+  top: 0;
+  border-radius: 45px;
+}
+body {
+  background-color: #dbc7a6de;
+}
+@media only screen and (max-width: 600px) {
+  #SportsEvent {
+    margin-left: 5%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 5%;
+  }
+  #teams {
+    justify-content: space-evenly;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}

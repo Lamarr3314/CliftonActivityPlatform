@@ -1,15 +1,70 @@
 let container = document.getElementById("EventContainer");
-let DarkMode=document.getElementById("DarkMode");
-let light=true;
-let dark=false;
+let DarkMode = document.getElementById("DarkMode");
+let light = true;
+let dark = false;
 window.addEventListener("load", function () {
-    newGame("Boys Basketball", "Clifton", 32, "Montclair", 25, "9/18", "3PM", "@Ridgewood");
-    newGame("Boys Basketball", "Clifton", 32, "Montclair", 25, "9/18", "3PM", "@Ridgewood");
-    newGame("Boys Basketball", "Clifton", 32, "Montclair", 25, "9/18", "3PM", "@Ridgewood");
-    newGame("Boys Basketball", "Clifton", 32, "Montclair", 25, "9/18", "3PM", "@Ridgewood");
+  newGame(
+    "Boys Basketball",
+    "Clifton",
+    32,
+    "Montclair",
+    25,
+    "9/18",
+    "3PM",
+    "@Ridgewood"
+  );
+  newGame(
+    "Boys Basketball",
+    "Clifton",
+    32,
+    "Montclair",
+    25,
+    "9/18",
+    "3PM",
+    "@Ridgewood"
+  );
+  newGame(
+    "Boys Basketball",
+    "Clifton",
+    32,
+    "Montclair",
+    25,
+    "9/18",
+    "3PM",
+    "@Ridgewood"
+  );
+  newGame(
+    "Boys Basketball",
+    "Clifton",
+    32,
+    "Montclair",
+    25,
+    "9/18",
+    "3PM",
+    "@Ridgewood"
+  );
 });
-function newGame(sport, team1_name, team1_score, team2_name, team2_score, info_date, info_time, info_location){
-    let sportsEvent = document.createElement("div");
+
+DarkMode.onclick = function () {
+  if (document.querySelector(".slider")) {
+    document.body.style.backgroundColor = "#dbc7a6de";
+  }
+  if (document.querySelector("input:checked + .slider")) {
+    document.body.style.backgroundColor = "black";
+  }
+  console.log("Clicked");
+};
+function newGame(
+  sport,
+  team1_name,
+  team1_score,
+  team2_name,
+  team2_score,
+  info_date,
+  info_time,
+  info_location
+) {
+  let sportsEvent = document.createElement("div");
   sportsEvent.id = "SportsEvent";
   sport = document.createElement("div");
   sport.id = "sport";
@@ -32,31 +87,22 @@ function newGame(sport, team1_name, team1_score, team2_name, team2_score, info_d
   team2.appendChild(team2_name);
   team2.appendChild(team2_score);
   team2.id = "team2";
-  let information=document.createElement("div");
+  let information = document.createElement("div");
   information.id = "information";
-  info_date=document.createElement("p");
-  info_date.innerHTML="9/17";
-  info_time=document.createElement("p");
+  info_date = document.createElement("p");
+  info_date.innerHTML = "9/17";
+  info_time = document.createElement("p");
   info_time.innerHTML = "5PM";
-  info_location=document.createElement("p");
+  info_location = document.createElement("p");
   info_location.innerHTML = "@Home";
   information.appendChild(info_date);
   information.appendChild(info_time);
   information.appendChild(info_location);
   teams.appendChild(team1);
   teams.appendChild(team2);
-  
+
   sportsEvent.appendChild(sport);
   sportsEvent.appendChild(teams);
   container.appendChild(sportsEvent);
   sportsEvent.appendChild(information);
 }
-DarkMode.onclick = function() {
-    if(document.querySelector(".slider")){
-        document.body.style.backgroundColor = "#dbc7a6de";
-    }
-    if(document.querySelector("input:checked + .slider")){
-        document.body.style.backgroundColor = "black";
-    }
-    console.log("Clicked");
-};

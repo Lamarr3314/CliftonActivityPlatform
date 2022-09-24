@@ -1,5 +1,7 @@
 let container = document.getElementById("EventContainer");
 let DarkMode = document.getElementById("DarkMode");
+let sportsDropDown= document.getElementById("SportsGames");
+let eventsDropDown= document.getElementById("events");
 let light = true;
 let dark = false;
 window.addEventListener("load", function () {
@@ -53,6 +55,9 @@ DarkMode.onclick = function () {
     document.body.style.backgroundColor = "black";
   }
   console.log("Clicked");
+};
+sportsDropDown.onmouseover = function () {
+  eventsDropDown.style.display="flex";
 };
 function newGame(
   sport,

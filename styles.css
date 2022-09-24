@@ -206,7 +206,14 @@ input:checked + .slider:before {
 #logo img {
   padding: 5px 10px;
   width: 100px;
+  margin-left: -80px
 }
 #events{
   display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 70%;
+  margin-left:20%;
+  position: fixed;
+  z-index: 3;
 }

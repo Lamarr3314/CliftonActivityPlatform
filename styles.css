@@ -34,7 +34,7 @@
   touch-action: manipulation;
 }
 
-#SportsEvent:before{
+#SportsEvent:before {
   content: "";
   background: linear-gradient(
     45deg,
@@ -162,12 +162,51 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-#DarkMode{
-    position: absolute;
-    position: fixed;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-    margin-left: 10px;
-    margin-bottom: 20px;
+#DarkMode {
+  position: absolute;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: black;
+  border-bottom-left-radius: 300px;
+  border-bottom-right-radius: 300px;
+  /* clip-path: 
+  polygon(
+    0% 29%,
+    5% 0%,
+    94% 0%,
+    100% 29%,
+    100% 75%,
+    94% 100%,
+    5% 100%,
+    0 75%
+  ); 
+  */
+}
+#navbar h2 {
+  margin-top: 30px;
+  text-align: center;
+  color: #c54211;
+  font-family: "Chakra Petch", sans-serif;
+}
+#navBarSpace {
+  margin-top: 130px;
+}
+#logo img {
+  padding: 5px 10px;
+  width: 100px;
+}
+#events{
+  display: none;
 }

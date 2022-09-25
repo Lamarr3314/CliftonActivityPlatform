@@ -1,7 +1,11 @@
 let container = document.getElementById("EventContainer");
 let DarkMode = document.getElementById("DarkMode");
-let sportsDropDown= document.getElementById("SportsGames");
-let eventsDropDown= document.getElementById("events");
+let sportsDropDown = document.getElementById("SportsGames");
+let eventsDropDown = document.getElementById("events");
+let navbar = document.getElementById("navbar");
+let navbarItems = document.querySelectorAll("#navbar h2");
+let phonenavbar = document.getElementById("phonenavbar");
+let phonenavbarItem = document.querySelector("#phonenavbar h2");
 let light = true;
 let dark = false;
 window.addEventListener("load", function () {
@@ -46,18 +50,16 @@ window.addEventListener("load", function () {
     "@Ridgewood"
   );
 });
-
 DarkMode.onclick = function () {
   if (document.querySelector(".slider")) {
-    document.body.style.backgroundColor = "#dbc7a6de";
+    lightFunction();
   }
   if (document.querySelector("input:checked + .slider")) {
-    document.body.style.backgroundColor = "black";
+    darkFunction();
   }
-  console.log("Clicked");
 };
 sportsDropDown.onmouseover = function () {
-  eventsDropDown.style.display="flex";
+  eventsDropDown.style.display = "flex";
 };
 function newGame(
   sport,
@@ -110,4 +112,35 @@ function newGame(
   sportsEvent.appendChild(teams);
   container.appendChild(sportsEvent);
   sportsEvent.appendChild(information);
+}
+function lightFunction() {
+  document.body.style.backgroundColor = "#dbc7a6de";
+  navbar.style.backgroundColor = "#dbc7a6de";
+  phonenavbar.style.backgroundColor = "#dbc7a6de";
+  phonenavbarItem.style.color="black";
+  for (let i = 0; i < navbarItems.length; i++) {
+    navbarItems[i].style.color = "black";
+  }
+}
+function darkFunction() {
+  document.body.style.backgroundColor = "black";
+  navbar.style.backgroundColor = "black";
+  phonenavbarItem.style.color="#c54211";
+  phonenavbar.style.backgroundColor = "black";
+  for (let i = 0; i < navbarItems.length; i++) {
+    navbarItems[i].style.color = "#c54211";
+  }
+  for (let i = 0; i < navbarItems.length; i++) {
+    navbarItems[i].onmouseover = function () {
+      navbarItems[i].style.color = "black";
+    };
+    navbarItems[i].onmouseout = function () {
+      if (document.querySelector("input:checked + .slider")) {
+        navbarItems[i].style.color = "#c54211";
+      } else {
+        navbarItems[i].style.color = "black";
+      }
+    };
+  }
+
 }

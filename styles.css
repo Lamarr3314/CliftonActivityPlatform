@@ -178,9 +178,11 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background-color: black;
+  background-color: #dbc7a6de;
+  border: 1px solid #c51211;
   border-bottom-left-radius: 300px;
   border-bottom-right-radius: 300px;
+  height: 85px;
   /* clip-path: 
   polygon(
     0% 29%,
@@ -195,25 +197,102 @@ input:checked + .slider:before {
   */
 }
 #navbar h2 {
-  margin-top: 30px;
   text-align: center;
-  color: #c54211;
+  color: black;
+  padding-left:10px;
+  padding-right: 10px;
+  padding-top: 6px;
   font-family: "Chakra Petch", sans-serif;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+#navbar h2:hover{
+  transition-delay: .05s;
+  background-color: #e13c1c;
+  cursor: pointer;
+  border-radius: 80px;
+  -webkit-transform: rotate(4deg);
+  transform: rotate(4deg);
 }
 #navBarSpace {
   margin-top: 130px;
 }
 #logo img {
-  padding: 5px 10px;
   width: 100px;
-  margin-left: -80px
+  margin-top: -8px;
+}
+#logo{
+  margin-left: -80px;
 }
 #events{
   display: none;
   flex-direction: row;
   justify-content: space-between;
   width: 70%;
-  margin-left:20%;
-  position: fixed;
-  z-index: 3;
+}
+#leaderboard{
+  margin-left: -90px;
+}
+#name{
+  margin-left: -50px;
+}
+#phonenavbar{
+  display: none;
+}
+@media only screen and (max-width: 1600px) {
+  #logo{
+    margin-left: -80px;
+  }
+  #leaderboard{
+  }
+  #name{
+    margin-left: -50px;
+  }
+}
+@media only screen and (max-width: 1250px) {
+  #logo{
+    margin-left: -100px;
+  }
+  #leaderboard{
+    margin-left: -100px;
+  }
+  #name{
+    margin-left: -30px;
+  }
+}
+@media only screen and (max-width: 930px) {
+  #navbar{
+    display: none;
+  }
+  #phonenavbar{
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    background-color: #dbc7a6de;
+    border: 1px solid #c51211;
+    width: 100%;
+    z-index: 3;
+    top:0;
+    left: 0;
+    height: 50px;
+    border-radius: 100px;
+    text-align: center;
+    margin-top: 1px;
+  }
+  #phonenavbar img{
+    width: 50px;
+  }
+  #title{
+    justify-self:center;
+    font-family: "Chakra Petch", sans-serif;
+  }
 }

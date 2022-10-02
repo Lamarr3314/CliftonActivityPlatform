@@ -13,6 +13,7 @@ let mainContainer = document.getElementById("main");
 let navbarItems = document.querySelectorAll("#navbar h2");
 let phonenavbar = document.getElementById("phonenavbar");
 let maxWidth = 0.0;
+let sports= document.getElementById("sports");
 let expanded = document.getElementById("Expanded");
 let ExpandedText = document.querySelectorAll("#Expanded h2");
 let phonenavbarItem = document.querySelector("#phonenavbar h2");
@@ -92,23 +93,17 @@ if (!throughFirst) {
     expanded.style.transition = "opacity 4s, transform 6s, background 12s";
     expanded.style.transform = "translateY(-2px)";
     mainContainer.style.background = "none";
-    throughFirst = true;
-    navbar.style.backgroundColor = "#dbc7a6de";
+
     navbar.style.borderBottomLeftRadius = "300px";
     navbar.style.borderBottomRightRadius = "300px";
-    setTimeout(function () {
-      for (let i = 0.0; i < mainItems.length; i++) {
-        mainItems[i].style.display = "none";
-      }
-    }, 5500);
   };
+  throughFirst = true;
 }
 logo.onclick = function () {
   if (throughFirst) {
     expanded.style.transform = "translateY(-75px)";
     expanded.style.opacity = "0";
     expanded.style.transition = "opacity 5s, transform 6s, background 12s";
-    mainContainer.style.background = "#dbc7a6de";
     for (let i = 0; i < mainItems.length; i++) {
       mainItems[i].style.opacity = "1";
       mainItems[i].style.transition = "opacity 5s, transform 4s";
@@ -124,16 +119,6 @@ for (let i = 0; i < mainItems.length; i++) {
   };
   mainItems[i].onmouseout = function () {
     mainItems[i].style.transform = "none";
-  };
-}
-for (let p = 0; p < ExpandedText.length; p++) {
-  ExpandedText[p].onmouseover = function () {
-    ExpandedText[p].style.transition = "opacity 5s, transform .2s";
-    ExpandedText[p].style.backgroundColor = "red";
-    ExpandedText[p].style.transform = "rotate(5deg)";
-  };
-  ExpandedText[p].onmouseout = function () {
-    ExpandedText[p].style.transform = "none";
   };
 }
 function newGame(
@@ -207,8 +192,11 @@ function moveHat(forward) {
     logo.style.transform = "none";
   }
 }
+sports.onclick=function() {
+  turnHat();
+}
 function turnHat() {
-  logo.style.transform = "rotate(360deg)";
+  //turn the hat lol
 }
 function darkFunction() {
   document.body.style.backgroundColor = "black";

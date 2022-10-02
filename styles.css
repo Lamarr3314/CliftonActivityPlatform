@@ -209,6 +209,9 @@ input:checked + .slider:before {
   position: sticky;
   top: 0;
   z-index: 3;
+  background-color: #dbc7a6de;
+  height: 85px;
+  background-blend-mode: luminosity;
 }
 #main h2,
 #Expanded h2 {
@@ -228,7 +231,7 @@ input:checked + .slider:before {
   -webkit-transition-property: transform;
   transition-property: transform;
 }
-#main h2:hover{
+#main h2:hover, #Expanded h2:hover {
   transition-delay: 0.05s;
   background-color: #e13c1c;
   cursor: pointer;
@@ -250,7 +253,6 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 70%;
   margin-left: 10%;
   position: sticky;
   top: 0;
@@ -273,7 +275,7 @@ input:checked + .slider:before {
   margin-top: -84px;
   border-bottom-left-radius: 300px;
   border-bottom-right-radius: 300px;
-  width: 100%;
+  width: 90%;
   height: 85px;
   padding-bottom: -10px;
   z-index: 2;
@@ -330,4 +332,7 @@ input:checked + .slider:before {
     justify-self: center;
     font-family: "Chakra Petch", sans-serif;
   }
+}
+#Expanded h2{
+  padding-bottom: 8px;
 }

@@ -27,39 +27,44 @@
   </head>
   <body>
     <div id="navbar">
-      <h2 id="name">Clifton Activity Portal</h2>
-      <h2 id="leaderboard">Leaderboard</h2>
-      <img id="logo" src="images/CAPlogo.png" alt="CAPLogo" />
-      <h2 id="event">Events</h2>
-      <h2 id="signIn">Sign In</h2>
+      <div id="main">
+        <h2 id="name">Clifton Activity Portal</h2>
+        <h2 id="spotlight">Spotlight</h2>
+        <img id="logo" src="images/CAPlogo.png" alt="CAPLogo" />
+        <h2 id="event">Events</h2>
+        <h2 id="signIn">Sign In</h2>
+      </div>
+      <div id="Expanded">
+        <div id="sports">
+          <h2>Sports</h2>
+        </div>
+        <div id="schoolWide">
+          <h2>School Wide Events</h2>
+        </div>
+        <div id="all">
+          <h2>All</h2>
+        </div>
+        <div id="placeHolder"></div>
+      </div>
+      <div class="sportsExp">
+        <div id="fall">
+          <h2>Fall</h2>
+        </div>
+        <div id="summer">
+          <h2>Summer</h2>
+        </div>
+        <div id="winter">
+          <h2>Winter</h2>
+        </div>
+        <div id="allSports">
+          <h2>All</h2>
+        </div>
+      </div>
     </div>
     <div id="phonenavbar">
       <img id="menu" src="images/002-menu.png" alt="menu" />
       <h2 id="title">Clifton Activity Portal</h2>
       <img id="phonelogo" src="images/CAPlogo.png" alt="CAPLogo" />
-    </div>
-    <div id="events">
-      <div id="all">
-        <h2>All</h2>
-      </div>
-      <div id="boysFootball">
-        <h2>Boys Football</h2>
-      </div>
-      <div id="boysXC">
-        <h2>Boys Cross Country</h2>
-      </div>
-      <div id="girlsXC">
-        <h2>Girls Cross Country</h2>
-      </div>
-      <div id="girlsVolleyball">
-        <h2>Girls Volleyball</h2>
-      </div>
-      <div id="girlsSoccer">
-        <h2>Girls Soccer</h2>
-      </div>
-      <div id="boysSoccer">
-        <h2>Boys Soccer</h2>
-      </div>
     </div>
     <label id="DarkMode">
       <input type="checkbox" />
@@ -69,3 +74,19 @@
     <div id="EventContainer"></div>
   </body>
 </html>
+<!--Imbed tiktok videos into the website when clicking on the event-->
+<!--Some sort of graphical component - football image, soccer image, etc.
+Contact school to see how responsive they are(?) - Wait till final presentation and have everything built out
+Add in Facebook/Instagram/Twitter share integration - button for sharing event on platform
+https://www.facebook.com/sharer.php?u=(url) https://twitter.com/share?url=(url)/&text=(text)
+TikTok video fetching (get videos via hashtag)
+https://developers.tiktok.com/doc/embed-videos/
+Could use a generic hashtag for demo purposes
+If there’s time:
+Have basic database example set up for website
+Google Calendar/Google Maps integration
+Eventbrite/RSVP integration 
+Lineup for teams
+Student/coach login for customization
+Feed for the user to see all of their favorite events
+-->

@@ -39,6 +39,10 @@
   margin-top: -67px;
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  width: 90%;
+  margin-left: 8%;
+  transform: translateY(-75px);
 }
 #SportsEvent:before {
   content: "";
@@ -200,7 +204,6 @@ input:checked + .slider:before {
     0 75%
   ); 
   */
-  background-color: #dbc7a6de;
 }
 #logo:hover {
   cursor: grab;
@@ -214,7 +217,9 @@ input:checked + .slider:before {
   background-blend-mode: luminosity;
 }
 #main h2,
-#Expanded h2 {
+#Expanded h2,
+.sportsExp h2,
+#fallExp div h2 {
   text-align: center;
   color: black;
   padding-left: 10px;
@@ -231,7 +236,11 @@ input:checked + .slider:before {
   -webkit-transition-property: transform;
   transition-property: transform;
 }
-#main h2:hover, #Expanded h2:hover {
+#main h2:hover,
+#Expanded h2:hover,
+.sportsExp h2:hover,
+#fallExp h2:hover,
+#springExp h2:hover {
   transition-delay: 0.05s;
   background-color: #e13c1c;
   cursor: pointer;
@@ -267,7 +276,9 @@ input:checked + .slider:before {
 #phonenavbar {
   display: none;
 }
-#Expanded {
+#Expanded,
+#fallExp,
+#springExp {
   opacity: 0;
   transform: translateY(-75px);
   justify-content: space-around;
@@ -281,7 +292,7 @@ input:checked + .slider:before {
   z-index: 2;
 }
 .sportsExp {
-  display: none;
+  opacity: 0;
 }
 @media only screen and (max-width: 1600px) {
   #logo {
@@ -333,6 +344,37 @@ input:checked + .slider:before {
     font-family: "Chakra Petch", sans-serif;
   }
 }
-#Expanded h2{
+#Expanded h2,
+.sportsExp h2,
+#fallExp h2,
+#springExp h2 {
   padding-bottom: 8px;
+}
+.sportsExp div img,
+#fallExp div img {
+  margin-bottom: -20px;
+  width: 45px;
+}
+#fallExp,
+#winterExp,
+#springExp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: -105px;
+  z-index: 5;
+  opacity: 0;
+}
+#fallExp {
+  margin-left: 6%;
+}
+@media only screen and (max-width: 1330px) {
+  #fallExp {
+    margin-left: 8%;
+  }
+}
+@media only screen and (max-width: 1130px) {
+  #fallExp {
+    margin-left: 10.2%;
+  }
 }

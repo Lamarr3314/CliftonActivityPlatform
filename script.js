@@ -12,7 +12,10 @@ let placeHolder = document.getElementById("placeHolder");
 let mainContainer = document.getElementById("main");
 let navbarItems = document.querySelectorAll("#navbar h2");
 let phonenavbar = document.getElementById("phonenavbar");
+let sportsExp=document.querySelector(".sportsExp");
 let maxWidth = 0.0;
+let fall=document.getElementById("fall");
+let fallExp = document.getElementById("fallExp");
 let sports= document.getElementById("sports");
 let expanded = document.getElementById("Expanded");
 let ExpandedText = document.querySelectorAll("#Expanded h2");
@@ -121,6 +124,16 @@ for (let i = 0; i < mainItems.length; i++) {
     mainItems[i].style.transform = "none";
   };
 }
+fall.onclick = function () {
+  fallExp.style.transition="transform 3s, opacity 2s";
+  fallExp.style.transform = "none";
+  fallExp.style.opacity = "1";
+  sportsExp.style.transform="translateY(60px)";
+  setTimeout(function(){
+    sportsExp.style.transform="translateY(-45px)";
+  }, 3000); 
+  sportsExp.style.opacity = "0";
+}
 function newGame(
   sport,
   team1_name,
@@ -193,10 +206,14 @@ function moveHat(forward) {
   }
 }
 sports.onclick=function() {
-  turnHat();
-}
-function turnHat() {
-  //turn the hat lol
+  sportsExp.style.transition="opacity 4s, transform 4s";
+  sportsExp.style.opacity="1";
+  sportsExp.style.transform="translateY(-18px)";
+  expanded.style.transition="opacity 2s, transform 4s";
+  expanded.style.transform="translateY(-70px)";
+  expanded.style.opacity="0";
+  mainContainer.style.zIndex="0";
+  // expanded.style.zIndex="10";
 }
 function darkFunction() {
   document.body.style.backgroundColor = "black";

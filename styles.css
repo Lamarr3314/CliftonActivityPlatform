@@ -378,3 +378,14 @@ input:checked + .slider:before {
     margin-left: 10.2%;
   }
 }
+#discoverBanner {
+  transform: translateY(-200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "League Spartan", sans-serif;
+  font-size: 25px;
+}
+#discoveryBanner h2{
+  opacity: 0;
+}

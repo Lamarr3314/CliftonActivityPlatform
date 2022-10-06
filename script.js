@@ -12,18 +12,23 @@ let placeHolder = document.getElementById("placeHolder");
 let mainContainer = document.getElementById("main");
 let navbarItems = document.querySelectorAll("#navbar h2");
 let phonenavbar = document.getElementById("phonenavbar");
-let sportsExp=document.querySelector(".sportsExp");
+let sportsExp = document.querySelector(".sportsExp");
 let maxWidth = 0.0;
-let fall=document.getElementById("fall");
+let discoveryBanner = document.getElementById("discoveryBanner");
+let fall = document.getElementById("fall");
 let fallExp = document.getElementById("fallExp");
-let sports= document.getElementById("sports");
+let sports = document.getElementById("sports");
 let expanded = document.getElementById("Expanded");
 let ExpandedText = document.querySelectorAll("#Expanded h2");
 let phonenavbarItem = document.querySelector("#phonenavbar h2");
 let light = true;
 let dark = false;
+let discoverBannerStop = document.querySelector("#discoverBanner h2");
 let mainItems = [eventMain, signInMain, spotlightMain, nameMain];
 let throughFirst = false;
+discoverBannerStop.style.opacity = "0";
+navbar.style.borderBottomLeftRadius = "300px";
+navbar.style.borderBottomRightRadius = "300px";
 window.addEventListener("load", function () {
   newGame(
     "Boys Basketball",
@@ -96,14 +101,47 @@ if (!throughFirst) {
     expanded.style.transition = "opacity 4s, transform 6s, background 12s";
     expanded.style.transform = "translateY(-2px)";
     mainContainer.style.background = "none";
-
-    navbar.style.borderBottomLeftRadius = "300px";
-    navbar.style.borderBottomRightRadius = "300px";
+  };
+  spotlightMain.onclick = function () {
+    for (let i = 0.0; i < mainItems.length; i++) {
+      mainItems[i].style.transform = "translateY(-75px)";
+      mainItems[i].style.transition =
+        "opacity " + ((i * 2) / 1) * 0.63 + "s, transform 10s";
+      mainItems[i].style.opacity = "0";
+      mainItems[i].disabled = true;
+    }
+    moveHat(true);
+    logo.style.transition = "transform 5s";
+    discoverBannerStop.style.opacity = "1";
+    discoverBannerStop.style.transition =
+      "opacity 3s, transform 3s, background 12s";
+    discoverBannerStop.style.transform = "translateY(130px)";
+    mainContainer.style.background = "none";
+    discoverBannerStop.innerHTML =
+      'Spotlight the <span class="auto-type"></span>of Clifton';
+    var typed = new Typed(".auto-type", {
+      strings: ["Athletes", "Students", "Heart"],
+      typeSpeed: 150,
+      backSpeed: 150,
+      loop: false,
+      startDelay: 2500,
+      showCursor: true,
+      onComplete: (self) => {
+        setTimeout(function () {
+          self.cursor.remove();
+          discoverBannerStop.innerHTML = "Spotlight the Heart of Clifton";
+          delete self;
+        }, 1000);
+      },
+    });
   };
   throughFirst = true;
 }
 logo.onclick = function () {
   if (throughFirst) {
+    discoverBannerStop.style.transition = "transform 6s, opacity 3s";
+    discoverBannerStop.style.opacity = "0";
+    discoverBannerStop.style.transform = "translateY(-130px)";
     expanded.style.transform = "translateY(-75px)";
     expanded.style.opacity = "0";
     expanded.style.transition = "opacity 5s, transform 6s, background 12s";
@@ -125,15 +163,15 @@ for (let i = 0; i < mainItems.length; i++) {
   };
 }
 fall.onclick = function () {
-  fallExp.style.transition="transform 3s, opacity 2s";
+  fallExp.style.transition = "transform 3s, opacity 2s";
   fallExp.style.transform = "none";
   fallExp.style.opacity = "1";
-  sportsExp.style.transform="translateY(60px)";
-  setTimeout(function(){
-    sportsExp.style.transform="translateY(-45px)";
-  }, 3000); 
+  sportsExp.style.transform = "translateY(60px)";
+  setTimeout(function () {
+    sportsExp.style.transform = "translateY(-45px)";
+  }, 3000);
   sportsExp.style.opacity = "0";
-}
+};
 function newGame(
   sport,
   team1_name,
@@ -205,16 +243,16 @@ function moveHat(forward) {
     logo.style.transform = "none";
   }
 }
-sports.onclick=function() {
-  sportsExp.style.transition="opacity 4s, transform 4s";
-  sportsExp.style.opacity="1";
-  sportsExp.style.transform="translateY(-18px)";
-  expanded.style.transition="opacity 2s, transform 4s";
-  expanded.style.transform="translateY(-70px)";
-  expanded.style.opacity="0";
-  mainContainer.style.zIndex="0";
+sports.onclick = function () {
+  sportsExp.style.transition = "opacity 4s, transform 4s";
+  sportsExp.style.opacity = "1";
+  sportsExp.style.transform = "translateY(-18px)";
+  expanded.style.transition = "opacity 2s, transform 4s";
+  expanded.style.transform = "translateY(-70px)";
+  expanded.style.opacity = "0";
+  mainContainer.style.zIndex = "0";
   // expanded.style.zIndex="10";
-}
+};
 function darkFunction() {
   document.body.style.backgroundColor = "black";
   navbar.style.backgroundColor = "black";

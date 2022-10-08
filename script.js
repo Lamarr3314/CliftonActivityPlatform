@@ -1,4 +1,7 @@
 let container = document.getElementById("EventContainer");
+let cMove = document.getElementById("c");
+let aMove = document.getElementById("a");
+let pMove = document.getElementById("p");
 let DarkMode = document.getElementById("DarkMode");
 let sportsDropDown = document.getElementById("SportsGames");
 let eventsDropDown = document.getElementById("events");
@@ -14,6 +17,8 @@ let navbarItems = document.querySelectorAll("#navbar h2");
 let phonenavbar = document.getElementById("phonenavbar");
 let sportsExp = document.querySelector(".sportsExp");
 let maxWidth = 0.0;
+let infoDropDown = document.getElementById("infoDropDown");
+let infoPage = document.getElementById("name");
 let discoveryBanner = document.getElementById("discoveryBanner");
 let fall = document.getElementById("fall");
 let fallExp = document.getElementById("fallExp");
@@ -22,13 +27,18 @@ let expanded = document.getElementById("Expanded");
 let ExpandedText = document.querySelectorAll("#Expanded h2");
 let phonenavbarItem = document.querySelector("#phonenavbar h2");
 let light = true;
+let oneDropDown=document.getElementById("oneDrop");
+let twoDropDown=document.getElementById("twoDrop");
+let threeDropDown=document.getElementById("threeDrop");
 let dark = false;
+let extDropDown = document.getElementById("extDropDown");
 let discoverBannerStop = document.querySelector("#discoverBanner h2");
 let mainItems = [eventMain, signInMain, spotlightMain, nameMain];
 let throughFirst = false;
 discoverBannerStop.style.opacity = "0";
 navbar.style.borderBottomLeftRadius = "300px";
 navbar.style.borderBottomRightRadius = "300px";
+let moveItems = [cMove, aMove, pMove];
 window.addEventListener("load", function () {
   newGame(
     "Boys Basketball",
@@ -274,3 +284,41 @@ function darkFunction() {
     };
   }
 }
+infoPage.onclick = function () {
+  for (let i = 0.0; i < mainItems.length; i++) {
+    mainItems[i].style.transform = "translateY(-75px)";
+    mainItems[i].style.transition =
+      "opacity " + ((i * 2) / 1) * 0.63 + "s, transform 10s";
+    mainItems[i].style.opacity = "0";
+    mainItems[i].disabled = true;
+  }
+  moveHat(true);
+  logo.style.transition = "transform 5s";
+  infoDropDown.style.transition = "transform 3s";
+  infoDropDown.style.transform = "translateY(-115px)";
+  infoDropDown.style.transition = "justify-content=5s";
+  cMove.style.marginLeft = "45%";
+
+  setTimeout(function () {
+    cMove.style.marginLeft = "27%";
+    for (let i = 0; i < moveItems.length; i++) {
+      moveItems[i].style.transition = "5s";
+      moveItems[i].style.marginRight = "20%";
+    }
+  }, 4000);
+  setTimeout(function () {
+    extDropDown.style.transition="transform 4s";
+    extDropDown.style.transform = "translateY(-186px)";
+  }, 6000);
+  setTimeout(function () {
+    for (let i = 0; i < moveItems.length; i++) {
+      moveItems[i].style.transition = "3s";
+      moveItems[i].style.marginRight = "7%";
+    }
+    cMove.style.marginLeft="35%";
+    oneDropDown.style.marginLeft="40%";
+    oneDropDown.style.marginRight="2%";
+    twoDropDown.style.marginRight="2%";
+    threeDropDown.style.marginRight="2%";
+  }, 10000);
+};

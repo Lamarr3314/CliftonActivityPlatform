@@ -389,3 +389,21 @@ input:checked + .slider:before {
 #discoveryBanner h2{
   opacity: 0;
 }
+#infoDropDown, #extDropDown{
+  transform: translateY(-300px);
+  display: flex;
+  flex-direction: row;
+}
+#infoDropDown h2, #extDropDown h2{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 25px;
+}
+#oneDrop{
+  margin-left: 28.35%;
+}
+#oneDrop{
+  margin-right: 15.9%;
+}
+#twoDrop{
+  margin-right: 14.9%;
+}

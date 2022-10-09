@@ -131,7 +131,7 @@ if (!throughFirst) {
           self.cursor.remove();
           discoverBannerStop.innerHTML = "Spotlight the Heart of Clifton";
           delete self;
-        }, 1000);
+        }, 1300);
       },
     });
   };

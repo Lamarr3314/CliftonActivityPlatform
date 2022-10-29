@@ -17,7 +17,7 @@
   justify-content: space-around;
   font-family: "Dosis", sans-serif;
 }
-#SportsEvent {
+#SportsEvent, #addEvent {
   margin-top: 85px;
   margin-left: 15%;
   margin-right: 15%;
@@ -44,7 +44,7 @@
   margin-left: 8%;
   transform: translateY(-75px);
 }
-#SportsEvent:before {
+#SportsEvent:before, #addEvent::before {
   content: "";
   background: linear-gradient(
     45deg,
@@ -84,7 +84,7 @@
   }
 }
 
-#SportsEvent:after {
+#SportsEvent:after, #addEvent::after {
   z-index: -1;
   content: "";
   position: absolute;
@@ -187,11 +187,13 @@ input:checked + .slider:before {
   z-index: 2;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   border: 1px solid #c51211;
   border-bottom-left-radius: 300px;
   border-bottom-right-radius: 300px;
   height: 85px;
+  -webkit-transition: width 2s ease;
+  -moz-transition: width 2s ease;
+       transition: width 2s ease;
   /* clip-path: 
   polygon(
     0% 29%,
@@ -215,6 +217,7 @@ input:checked + .slider:before {
   background-color: #dbc7a6de;
   height: 85px;
   background-blend-mode: luminosity;
+  margin: auto;
 }
 #main h2,
 #Expanded h2,
@@ -241,12 +244,9 @@ input:checked + .slider:before {
 .sportsExp h2:hover,
 #fallExp h2:hover,
 #springExp h2:hover {
-  transition-delay: 0.05s;
   background-color: #e13c1c;
   cursor: pointer;
   border-radius: 80px;
-  -webkit-transform: rotate(4deg);
-  transform: rotate(4deg);
 }
 #navBarSpace {
   margin-top: 130px;
@@ -377,6 +377,10 @@ input:checked + .slider:before {
   #fallExp {
     margin-left: 10.2%;
   }
+  #introText{
+    text-align: center;
+    width: 80%;
+  }
 }
 #discoverBanner {
   transform: translateY(-200px);
@@ -393,6 +397,8 @@ input:checked + .slider:before {
   transform: translateY(-300px);
   display: flex;
   flex-direction: row;
+  width: 950px;
+  margin: auto;
 }
 #infoDropDown h2, #extDropDown h2{
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -406,4 +412,27 @@ input:checked + .slider:before {
 }
 #twoDrop{
   margin-right: 14.9%;
+}
+#addEvent{
+  display: flex;
+  flex-direction: row;
+}
+#addIcon img{
+  z-index: 12;
+  width:60px;
+  border: #111;
+  border-radius: 200px;
+}
+#addEvent::after{
+  background: #111;
+}
+#introText{
+  text-align: center;
+  width: 90%;
+  color: rgb(224, 146, 28);
+  font-family: 'League Spartan', sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+  margin-top: -4px;
+  margin-bottom: -30px;
 }

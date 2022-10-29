@@ -11,13 +11,14 @@ let logo = document.getElementById("logo");
 let spotlightMain = document.getElementById("spotlight");
 let nameMain = document.getElementById("name");
 let navbar = document.getElementById("navbar");
-let xc = document.getElementById("XC");
 let placeHolder = document.getElementById("placeHolder");
 let mainContainer = document.getElementById("main");
 let navbarItems = document.querySelectorAll("#navbar h2");
 let phonenavbar = document.getElementById("phonenavbar");
 let sportsExp = document.querySelector(".sportsExp");
 let maxWidth = 0.0;
+let all = document.getElementById("all");
+let allSports=document.getElementById("allSports");
 let infoDropDown = document.getElementById("infoDropDown");
 let infoPage = document.getElementById("name");
 let discoveryBanner = document.getElementById("discoveryBanner");
@@ -32,7 +33,6 @@ let oneDropDown = document.getElementById("oneDrop");
 let twoDropDown = document.getElementById("twoDrop");
 let threeDropDown = document.getElementById("threeDrop");
 let dark = false;
-let addEventButton=document.getElementById("addIcon");
 let extDropDown = document.getElementById("extDropDown");
 let discoverBannerStop = document.querySelector("#discoverBanner h2");
 let mainItems = [eventMain, signInMain, spotlightMain, nameMain];
@@ -47,64 +47,42 @@ const States = {
   thirdDrop: false,
 };
 window.addEventListener("load", function () {
-  for (let i = 0.0; i < mainItems.length; i++) {
-    mainItems[i].style.transition = "opacity .1s";
-    mainItems[i].style.opacity = "0";
-  }
-  mainContainer.style.width = "100px";
-  newGame(
-    "Boys Volleyball",
-    "Clifton",
-    32,
-    "Montclair",
-    25,
-    "9/18",
-    "3PM",
-    "Ridgewood"
-  );
-  newGame(
-    "Boys Basketball",
-    "Clifton",
-    32,
-    "Montclair",
-    25,
-    "9/18",
-    "3PM",
-    "Ridgewood"
-  );
-  newGame(
-    "Boys Basketball",
-    "Clifton",
-    32,
-    "Montclair",
-    25,
-    "9/18",
-    "3PM",
-    "Ridgewood"
-  );
-  newGame(
-    "Boys Basketball",
-    "Clifton",
-    32,
-    "Montclair",
-    25,
-    "9/18",
-    "6PM",
-    "Ridgewood"
-  );
   for (let i = 0; i < 10000; i++) {
     if (window.matchMedia("(min-width: " + i + "px)").matches) {
       maxWidth = i;
     }
   }
-  setTimeout(function () {
-    mainContainer.style.justifyContent = "space-around";
-    for (let i = 0.0; i < mainItems.length; i++) {
-      mainItems[i].style.transition = "opacity 9s";
-      mainItems[i].style.opacity = "1";
-    }
-    expandNavBar();
-  }, 150);
+  for (let i = 0.0; i < mainItems.length; i++) {
+    mainItems[i].style.transform = "translateY(-75px)";
+    mainItems[i].style.transition =
+      "opacity " + ((i * 2) / 1) * 0.63 + "s, transform 10s";
+    mainItems[i].style.opacity = "0";
+    mainItems[i].disabled = true;
+  }
+  moveHat(true);
+  logo.style.transition = "transform 5s";
+  discoverBannerStop.style.opacity = "1";
+  discoverBannerStop.style.transition =
+    "opacity 3s, transform 3s, background 12s";
+  discoverBannerStop.style.transform = "translateY(130px)";
+  mainContainer.style.background = "none";
+  discoverBannerStop.innerHTML =
+    'Spotlight the <span class="auto-type"></span>of Clifton';
+  var typed = new Typed(".auto-type", {
+    strings: ["Athletes", "Students", "Heart"],
+    typeSpeed: 150,
+    backSpeed: 150,
+    loop: false,
+    startDelay: 2500,
+    showCursor: true,
+    onComplete: (self) => {
+      setTimeout(function () {
+        self.cursor.remove();
+        discoverBannerStop.innerHTML = "Spotlight the Heart of Clifton";
+        delete self;
+      }, 1300);
+    },
+  });
 });
 DarkMode.onclick = function () {
   if (document.querySelector(".slider")) {
@@ -113,6 +91,14 @@ DarkMode.onclick = function () {
   if (document.querySelector("input:checked + .slider")) {
     darkFunction();
   }
+};
+allSports.onclick= function () {
+  window.location.href = "index.html";
+  // save the selection in cookies, make api call
+};
+all.onclick= function () {
+  window.location.href = "index.html";
+  // save the selection in cookies, make api call
 };
 if (States.homePage) {
   eventMain.onclick = function () {
@@ -134,25 +120,24 @@ if (States.homePage) {
   spotlightMain.onclick = function () {
     window.location.href = "spotlight.html";
   };
-  logo.onclick = function () {
-    if (States.homePage == false) {
-      discoverBannerStop.style.transition = "transform 6s, opacity 3s";
-      discoverBannerStop.style.opacity = "0";
-      discoverBannerStop.style.transform = "translateY(-130px)";
-      expanded.style.transform = "translateY(-75px)";
-      expanded.style.opacity = "0";
-      expanded.style.transition = "opacity 5s, transform 6s, background 12s";
-      for (let i = 0; i < mainItems.length; i++) {
-        mainItems[i].style.opacity = "1";
-        mainItems[i].style.transition = "opacity 5s, transform 4s";
-        moveHat(false);
-        mainItems[i].style.transform = "none";
-      }
-    }
-    console.log(States.homePage);
-    States.homePage = false;
-  };
+  States.homePage = false;
 }
+logo.onclick = function () {
+  if (States.homePage == false) {
+    discoverBannerStop.style.transition = "transform 6s, opacity 3s";
+    discoverBannerStop.style.opacity = "0";
+    discoverBannerStop.style.transform = "translateY(-130px)";
+    expanded.style.transform = "translateY(-75px)";
+    expanded.style.opacity = "0";
+    expanded.style.transition = "opacity 5s, transform 6s, background 12s";
+    for (let i = 0; i < mainItems.length; i++) {
+      mainItems[i].style.opacity = "1";
+      mainItems[i].style.transition = "opacity 5s, transform 4s";
+      moveHat(false);
+      mainItems[i].style.transform = "none";
+    }
+  }
+};
 fall.onclick = function () {
   fallExp.style.transition = "transform 3s, opacity 2s";
   fallExp.style.transform = "none";
@@ -163,37 +148,34 @@ fall.onclick = function () {
   }, 3000);
   sportsExp.style.opacity = "0";
 };
-function newEvent(){
-
-}
 function newGame(
-  usr_sport,
-  usr_team1_name,
-  usr_team1_score,
-  usr_team2_name,
-  usr_team2_score,
-  usr_info_date,
-  usr_info_time,
-  usr_info_location
+  sport,
+  team1_name,
+  team1_score,
+  team2_name,
+  team2_score,
+  info_date,
+  info_time,
+  info_location
 ) {
   let sportsEvent = document.createElement("div");
   sportsEvent.id = "SportsEvent";
-  let sport = document.createElement("div");
+  sport = document.createElement("div");
   sport.id = "sport";
-  sport.innerHTML = ""+usr_sport;
+  sport.innerHTML = "Girls Football";
   let teams = document.createElement("div");
   teams.id = "teams";
   let team1 = document.createElement("div");
   team1.id = "team1";
-  let team1_name = document.createElement("h1");
-  team1_name.innerHTML = ""+usr_team1_name;
-  let team1_score = document.createElement("h2");
-  team1_score.innerHTML = ""+usr_team1_score;
+  team1_name = document.createElement("h1");
+  team1_name.innerHTML = "Clifton";
+  team1_score = document.createElement("h2");
+  team1_score.innerHTML = "40";
   let team2 = document.createElement("div");
-  let team2_name = document.createElement("h1");
-  team2_name.innerHTML = ""+usr_team2_name;
-  let team2_score = document.createElement("h2");
-  team2_score.innerHTML = ""+usr_team2_score;
+  team2_name = document.createElement("h1");
+  team2_name.innerHTML = "Bergen Tech";
+  team2_score = document.createElement("h2");
+  team2_score.innerHTML = "32";
   team1.appendChild(team1_name);
   team1.appendChild(team1_score);
   team2.appendChild(team2_name);
@@ -201,12 +183,12 @@ function newGame(
   team2.id = "team2";
   let information = document.createElement("div");
   information.id = "information";
-  let info_date = document.createElement("p");
-  info_date.innerHTML = ""+usr_info_date;
-  let info_time = document.createElement("p");
-  info_time.innerHTML = ""+usr_info_time;
-  let info_location = document.createElement("p");
-  info_location.innerHTML = "@"+usr_info_location;
+  info_date = document.createElement("p");
+  info_date.innerHTML = "9/17";
+  info_time = document.createElement("p");
+  info_time.innerHTML = "5PM";
+  info_location = document.createElement("p");
+  info_location.innerHTML = "@Home";
   information.appendChild(info_date);
   information.appendChild(info_time);
   information.appendChild(info_location);
@@ -309,14 +291,3 @@ infoPage.onclick = function () {
 function expandNavBar() {
   mainContainer.style.width = "100%";
 }
-xc.onclick=function () {
-  window.location.href = "index.html";
-};
-addEventButton.onclick=function () {
-  addEventButton.style.transition="all 3s"
-  addEventButton.style.transform="rotate(180deg)";
-};
-function addEvent(){
-  // all of the code, where the box is expanded and the text boxes are open, so the user can fill out all of the fields.
-  // a calendar is dropped down as well to add the event.
-};

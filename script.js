@@ -1,7 +1,11 @@
 let container = document.getElementById("EventContainer");
 let cMove = document.getElementById("c");
 let aMove = document.getElementById("a");
+let spefSportContainer;
 let pressedEvent = false;
+let spefSporth2;
+let spefSportText;
+let selectSportContainer;
 let school_checkbox;
 let sport_checkbox;
 let pMove = document.getElementById("p");
@@ -45,6 +49,17 @@ discoverBannerStop.style.opacity = "0";
 navbar.style.borderBottomLeftRadius = "300px";
 navbar.style.borderBottomRightRadius = "300px";
 let moveItems = [cMove, aMove, pMove];
+// let Baseball=new Sport("Baseball", "")
+let springSports=["Baseball", "Softball", "Tennis", "Volleyball", "Football","Track"];
+let winterSports=["Basketball", "Hockey", "Wrestling", "Swimming"];
+// let fallSports=["XC", ""]
+class Sport {
+  constructor(ScreenName, DatabaseMaleName, DatabaseFemaleName) {
+    this.ScreenName = ScreenName;
+    this.DatabaseMaleName = DatabaseMaleName;
+    this.DatabaseFemaleName= DatabaseFemaleName;
+  }
+}
 const States = {
   homePage: true,
   firstDrop: false,
@@ -357,36 +372,54 @@ function addEvent() {
 }
 
 function selectSport() {
-  console.log("inSport");
   if (sport_checkbox.checked) {
     school_checkbox.checked = false;
     fillNewSport();
   }
 }
 function selectSchool() {
-  console.log(school_checkbox.checked);
   if (school_checkbox.checked) {
     sport_checkbox.checked = false;
     fillSchoolEvent();
   }
 }
 function fillNewSport() {
-  let sportFormDiv= document.createElement("div");
-  let sportForm = document.createElement("FORM");
-  //let inc=3;
-  //selectSportFunction("Basketball", inc);
+  selectSportContainer = document.createElement("div");
+  selectSportContainer.id = "selectSportContainer";
+  spefSportContainer=document.createElement("div");
+  fillOutEvent.appendChild(selectSportContainer);
+  spefSportText = document.createElement("div");
+  spefSportText.id = "spefSportText";
+  spefSporth2 = document.createElement("h2");
+  spefSporth2.innerHTML = "Select Sport";
+  spefSportText.appendChild(spefSporth2);
+  selectSportContainer.appendChild(spefSportText);
+  spefSportContainer.id = "spefSportContainer";
+  selectSportFunction("Baseball");
+  selectSportFunction("Softball");
+  selectSportFunction("Tennis");
+  selectSportFunction("Volleyball");
+  selectSportFunction("Football");
+  selectSportFunction("Track");
 }
-// function selectSportFunction(sport, inc){//gl on this one bozo.
-//   let selectSportType = document.createElement("div");
-//   selectSportType.id = "selectSportType";
-//   selectSportType.innerHTML =
-//     "<div id=\"selectSportType"+sport+"Div\"><input type=\"checkbox\" id=\"sport_"+sport+"_checkbox\" onclick=\"sportClickFunc()\">  <label  id=\"sport"+sport+"Check\"for=\"sport_"+sport+"_checkbox\"> <div id=\"tick_mark"+inc+"\"></div>  </label></div>";
-//   let schoolCheckLabel = document.createElement("h2");
-//   schoolCheckLabel.innerHTML = "School Event";
-//   let schoolCheckLabelDiv = document.createElement("div");
-//   schoolCheckLabelDiv.id = "SchoolCheckLabelDiv";
-//   schoolCheckLabelDiv.appendChild(schoolCheckLabel);
-//   selectSchool.appendChild(schoolCheckLabelDiv);
-// }
-function sportClickFunc(){}
+function selectSportFunction(sport) {
+  let selectSpefSport = document.createElement("div");
+  selectSpefSport.id = "selectSpefSport";
+  selectSportContainer.appendChild(selectSpefSport);
+  selectSpefSport.innerHTML =
+    '<div id="selectSpefSportDiv"><input type="checkbox" id="' +
+    sport +
+    '_sport_checkbox">  <label  id="spefSportCheck"for="' +
+    sport +
+    '_sport_checkbox"> <div id="tick_mark3"></div>  </label></div>';
+  let spefSportCheckLabel = document.createElement("h2");
+  spefSportCheckLabel.innerHTML = "" + sport;
+  let spefSportCheckLabelDiv = document.createElement("div");
+  spefSportCheckLabelDiv.id = "spefSportCheckLabelDiv";
+  spefSportCheckLabelDiv.appendChild(spefSportCheckLabel);
+  selectSpefSport.appendChild(spefSportCheckLabelDiv);
+  spefSportContainer.appendChild(selectSpefSport);
+  selectSportContainer.appendChild(spefSportContainer);
+}
+function sportClickFunc() {}
 function fillSchoolEvent() {}

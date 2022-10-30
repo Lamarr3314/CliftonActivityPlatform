@@ -2,8 +2,13 @@ let container = document.getElementById("EventContainer");
 let cMove = document.getElementById("c");
 let aMove = document.getElementById("a");
 let spefSportContainer;
+let spefSeasonContainer;
+let selectSeasonContainer;
+let trackProgressSport = false;
 let pressedEvent = false;
+let currSelectedSport;
 let spefSporth2;
+let spefSeasonh2;
 let spefSportText;
 let selectSportContainer;
 let school_checkbox;
@@ -48,18 +53,65 @@ let mainItems = [eventMain, signInMain, spotlightMain, nameMain];
 discoverBannerStop.style.opacity = "0";
 navbar.style.borderBottomLeftRadius = "300px";
 navbar.style.borderBottomRightRadius = "300px";
-let moveItems = [cMove, aMove, pMove];
-// let Baseball=new Sport("Baseball", "")
-let springSports=["Baseball", "Softball", "Tennis", "Volleyball", "Football","Track"];
-let winterSports=["Basketball", "Hockey", "Wrestling", "Swimming"];
-// let fallSports=["XC", ""]
 class Sport {
-  constructor(ScreenName, DatabaseMaleName, DatabaseFemaleName) {
+  constructor(ScreenName, DatabaseName) {
     this.ScreenName = ScreenName;
-    this.DatabaseMaleName = DatabaseMaleName;
-    this.DatabaseFemaleName= DatabaseFemaleName;
+    this.DatabaseName = DatabaseName;
+  }
+  getDatabaseName(gender) {
+    return this.DatabaseName;
+  }
+  getGenders() {
+    let list = [];
+    if (this.DatabaseName[0] == "m") {
+      list = ["Male"];
+    } else {
+      list = ["Female"];
+    }
+    return list;
   }
 }
+class mixedGender extends Sport {
+  constructor(ScreenName, DatabaseName) {
+    super(ScreenName, DatabaseName);
+  }
+  getDatabaseName(gender) {
+    return gender + this.DatabaseName;
+  }
+  getGenders() {
+    return ["Male", "Female"];
+  }
+}
+let moveItems = [cMove, aMove, pMove];
+let mBaseball = new Sport("Baseball", "male_baseball");
+let fSoftball = new Sport("Softball", "female_baseball");
+let mTennis = new Sport("Tennis", "male_tennis");
+let fFootball = new Sport("Football", "female_football");
+let Track = new mixedGender("Track", "_track");
+let mVolleyball = new Sport("Volleyball", "male_volleyball");
+let Hockey = new mixedGender("Hockey", "_hockey");
+let Wrestling = new mixedGender("Wrestling", "_wrestling");
+let Swimming = new mixedGender("Swimming", "_swimming");
+let Basketball = new mixedGender("Basketball", "_volleyball");
+let XC = new mixedGender("XC", "_xc");
+let Soccer = new mixedGender("Soccer", "_soccer");
+let fTennis = new Sport("Tennis", "female_tennis");
+let mFootball = new Sport("Football", "male_football");
+let gVolleyball = new Sport("Volleyball", "female_volleyball");
+let springSports = [
+  mBaseball,
+  fSoftball,
+  mTennis,
+  mVolleyball,
+  fFootball,
+  Track,
+];
+let winterSports = [Basketball, Hockey, Wrestling, Swimming];
+let fallSports = [XC, mFootball, Soccer, fTennis, gVolleyball];
+
+console.log(fSoftball.getGenders());
+let names = Track.getDatabaseName("male");
+console.log(names);
 const States = {
   homePage: true,
   firstDrop: false,
@@ -384,9 +436,28 @@ function selectSchool() {
   }
 }
 function fillNewSport() {
+  selectSeasonSetup();
+  selectSportSetup();
+  selectGenderSetup();
+}
+function selectGenderSetup() {}
+function selectSeasonSetup() {
+  selectSeasonContainer = document.createElement("div");
+  selectSeasonContainer.id = "selectSeasonContainer";
+  spefSeasonContainer = document.createElement("div");
+  fillOutEvent.appendChild(selectSeasonContainer);
+  spefSeasonText = document.createElement("div");
+  spefSeasonText.id = "spefSeasonText";
+  spefSeasonh2 = document.createElement("h2");
+  spefSeasonh2.innerHTML = "Select Season";
+  spefSeasonText.appendChild(spefSeasonh2);
+  selectSeasonContainer.appendChild(spefSeasonText);
+  spefSeasonContainer.id = "spefSeasonContainer";
+}
+function selectSportSetup() {
   selectSportContainer = document.createElement("div");
   selectSportContainer.id = "selectSportContainer";
-  spefSportContainer=document.createElement("div");
+  spefSportContainer = document.createElement("div");
   fillOutEvent.appendChild(selectSportContainer);
   spefSportText = document.createElement("div");
   spefSportText.id = "spefSportText";
@@ -395,31 +466,34 @@ function fillNewSport() {
   spefSportText.appendChild(spefSporth2);
   selectSportContainer.appendChild(spefSportText);
   spefSportContainer.id = "spefSportContainer";
-  selectSportFunction("Baseball");
-  selectSportFunction("Softball");
-  selectSportFunction("Tennis");
-  selectSportFunction("Volleyball");
-  selectSportFunction("Football");
-  selectSportFunction("Track");
+  for (let i = 0; i < fallSports.length; i++) {
+    selectSportFunction(fallSports[i].ScreenName);
+  }
 }
+let ccc = document.getElementById("XC");
+ccc.onclick = function () {
+  console.log("selectedSport");
+};
 function selectSportFunction(sport) {
   let selectSpefSport = document.createElement("div");
   selectSpefSport.id = "selectSpefSport";
   selectSportContainer.appendChild(selectSpefSport);
-  selectSpefSport.innerHTML =
-    '<div id="selectSpefSportDiv"><input type="checkbox" id="' +
-    sport +
-    '_sport_checkbox">  <label  id="spefSportCheck"for="' +
-    sport +
-    '_sport_checkbox"> <div id="tick_mark3"></div>  </label></div>';
   let spefSportCheckLabel = document.createElement("h2");
   spefSportCheckLabel.innerHTML = "" + sport;
-  let spefSportCheckLabelDiv = document.createElement("div");
-  spefSportCheckLabelDiv.id = "spefSportCheckLabelDiv";
-  spefSportCheckLabelDiv.appendChild(spefSportCheckLabel);
-  selectSpefSport.appendChild(spefSportCheckLabelDiv);
+  spefSportCheckLabel.id = "" + sport;
+  selectSpefSport.appendChild(spefSportCheckLabel);
   spefSportContainer.appendChild(selectSpefSport);
   selectSportContainer.appendChild(spefSportContainer);
+  // document.getElementById(selectSpefSport.id).addEventListener("click", selectedSport(selectSpefSport));
+}
+function selectedSport() {
+  // if(currSelectedSport){
+  //   currSelectedSport.style.backgroundColor="black";
+  // }
+  // currSelectedSport=selected;
+  // currSelectedSport.style.backgroundColor="red";
+  // console.log(selected);
+  console.log("selected");
 }
 function sportClickFunc() {}
 function fillSchoolEvent() {}

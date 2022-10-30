@@ -373,20 +373,20 @@ function selectSchool() {
 function fillNewSport() {
   let sportFormDiv= document.createElement("div");
   let sportForm = document.createElement("FORM");
-  let inc=3;
-  selectSportFunction("Basketball", inc);
+  //let inc=3;
+  //selectSportFunction("Basketball", inc);
 }
-function selectSportFunction(sport, inc){//gl on this one bozo.
-  let selectSportType = document.createElement("div");
-  selectSportType.id = "selectSportType";
-  selectSportType.innerHTML =
-    "<div id=\"selectSportType"+sport+"Div\"><input type=\"checkbox\" id=\"sport_"+sport+"_checkbox\" onclick=\"sportClickFunc()\">  <label  id=\"sport"+sport+"Check\"for=\"sport_"+sport+"_checkbox\"> <div id=\"tick_mark"+inc+"\"></div>  </label></div>";
-  let schoolCheckLabel = document.createElement("h2");
-  schoolCheckLabel.innerHTML = "School Event";
-  let schoolCheckLabelDiv = document.createElement("div");
-  schoolCheckLabelDiv.id = "SchoolCheckLabelDiv";
-  schoolCheckLabelDiv.appendChild(schoolCheckLabel);
-  selectSchool.appendChild(schoolCheckLabelDiv);
-}
+// function selectSportFunction(sport, inc){//gl on this one bozo.
+//   let selectSportType = document.createElement("div");
+//   selectSportType.id = "selectSportType";
+//   selectSportType.innerHTML =
+//     "<div id=\"selectSportType"+sport+"Div\"><input type=\"checkbox\" id=\"sport_"+sport+"_checkbox\" onclick=\"sportClickFunc()\">  <label  id=\"sport"+sport+"Check\"for=\"sport_"+sport+"_checkbox\"> <div id=\"tick_mark"+inc+"\"></div>  </label></div>";
+//   let schoolCheckLabel = document.createElement("h2");
+//   schoolCheckLabel.innerHTML = "School Event";
+//   let schoolCheckLabelDiv = document.createElement("div");
+//   schoolCheckLabelDiv.id = "SchoolCheckLabelDiv";
+//   schoolCheckLabelDiv.appendChild(schoolCheckLabel);
+//   selectSchool.appendChild(schoolCheckLabelDiv);
+// }
 function sportClickFunc(){}
 function fillSchoolEvent() {}

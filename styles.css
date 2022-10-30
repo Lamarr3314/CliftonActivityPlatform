@@ -305,8 +305,6 @@ input:checked + .slider:before {
   #logo {
     margin-left: -63px;
   }
-  #spotlight {
-  }
   #name {
     margin-left: -50px;
   }
@@ -314,8 +312,6 @@ input:checked + .slider:before {
 @media only screen and (max-width: 1620px) {
   #logo {
     margin-left: -49px;
-  }
-  #spotlight {
   }
   #name {
     margin-left: -50px;
@@ -390,7 +386,7 @@ input:checked + .slider:before {
   #SchoolCheckLabelDiv {
     margin-left: 10%;
   }
-  #SportCheckLabelDiv{
+  #SportCheckLabelDiv {
     margin-left: 10%;
   }
 }
@@ -543,7 +539,7 @@ input:checked + .slider:before {
 }
 
 #tick_mark:before,
-#tick_mark2:before{
+#tick_mark2:before {
   border-radius: 10px;
   border-radius: 10px;
   left: 0;
@@ -609,4 +605,51 @@ input:checked + .slider:before {
 #SportCheckLabelDiv h2 {
   color: #c52211;
   font-family: "Dosis", sans-serif;
+}
+@media only screen and (max-width: 1030px) {
+  #selectSchool,
+  #selectSport {
+    justify-content: space-evenly;
+    flex-direction: column-reverse;
+    width: 50%;
+  }
+  #sportCheck,
+  #schoolCheck {
+    margin-top: -43px;
+    margin-left: 18%;
+  }
+  #SchoolCheckLabelDiv,
+  #SportCheckLabelDiv {
+    margin-top: -15px;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+  #selectSchool,
+  #selectSport {
+    border-radius: 15px;
+  }
+  #selectSport{
+    margin-right: 5%;
+  }
+  #introText{
+    margin-right: 10%;
+  }
+}
+@media only screen and (max-width:650px) {
+  #sportCheck,
+  #schoolCheck {
+    margin-left: 18%;
+  }
+}
+@media only screen and (max-width:500px) {
+  #sportCheck,
+  #schoolCheck {
+    margin-left: 15%;
+  }
+}
+@media only screen and (max-width:410px) {
+  #sportCheck,
+  #schoolCheck {
+    margin-left: 10%;
+  }
 }

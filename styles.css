@@ -301,9 +301,9 @@ input:checked + .slider:before {
 .sportsExp {
   opacity: 0;
 }
-@media only screen and (max-width: 1720px) {
+@media only screen and (max-width: 1800px) {
   #logo {
-    margin-left: -49px;
+    margin-left: -63px;
   }
   #spotlight {
   }

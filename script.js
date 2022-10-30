@@ -1,6 +1,9 @@
 let container = document.getElementById("EventContainer");
 let cMove = document.getElementById("c");
 let aMove = document.getElementById("a");
+let pressedEvent = false;
+let school_checkbox;
+let sport_checkbox;
 let pMove = document.getElementById("p");
 let DarkMode = document.getElementById("DarkMode");
 let sportsDropDown = document.getElementById("SportsGames");
@@ -327,7 +330,7 @@ function addEvent() {
   let selectSchool = document.createElement("div");
   selectSchool.id = "selectSchool";
   selectSchool.innerHTML =
-    '<div id="selectSchoolDiv"><input type="checkbox" id="school_checkbox">  <label  id="schoolCheck"for="school_checkbox"> <div id="tick_mark"></div>  </label></div>';
+    '<div id="selectSchoolDiv"><input type="checkbox" id="school_checkbox" onclick="selectSchool()">  <label  id="schoolCheck"for="school_checkbox"> <div id="tick_mark"></div>  </label></div>';
   let schoolCheckLabel = document.createElement("h2");
   schoolCheckLabel.innerHTML = "School Event";
   let schoolCheckLabelDiv = document.createElement("div");
@@ -338,15 +341,52 @@ function addEvent() {
   let selectSport = document.createElement("div");
   selectSport.id = "selectSport";
   selectSport.innerHTML =
-    '<div id="selectSportDiv"><input type="checkbox" id="sport_checkbox">  <label  id="sportCheck"for="sport_checkbox"> <div id="tick_mark2"></div>  </label></div>';
+    '<div id="selectSportDiv"><input type="checkbox" id="sport_checkbox" onclick="selectSport()">  <label  id="sportCheck"for="sport_checkbox"> <div id="tick_mark2"></div>  </label></div>';
   let sportCheckLabel = document.createElement("h2");
   sportCheckLabel.innerHTML = "Sport Event";
   let sportCheckLabelDiv = document.createElement("div");
   sportCheckLabelDiv.id = "SportCheckLabelDiv";
   sportCheckLabelDiv.appendChild(sportCheckLabel);
   selectSport.appendChild(sportCheckLabelDiv);
-  
   selectEventContainer.appendChild(selectSport);
   selectEventContainer.appendChild(selectSchool);
+
   fillOutEvent.appendChild(selectEventContainer);
+  school_checkbox = document.getElementById("school_checkbox");
+  sport_checkbox = document.getElementById("sport_checkbox");
 }
+
+function selectSport() {
+  console.log("inSport");
+  if (sport_checkbox.checked) {
+    school_checkbox.checked = false;
+    fillNewSport();
+  }
+}
+function selectSchool() {
+  console.log(school_checkbox.checked);
+  if (school_checkbox.checked) {
+    sport_checkbox.checked = false;
+    fillSchoolEvent();
+  }
+}
+function fillNewSport() {
+  let sportFormDiv= document.createElement("div");
+  let sportForm = document.createElement("FORM");
+  let inc=3;
+  selectSportFunction("Basketball", inc);
+}
+function selectSportFunction(sport, inc){//gl on this one bozo.
+  let selectSportType = document.createElement("div");
+  selectSportType.id = "selectSportType";
+  selectSportType.innerHTML =
+    "<div id=\"selectSportType"+sport+"Div\"><input type=\"checkbox\" id=\"sport_"+sport+"_checkbox\" onclick=\"sportClickFunc()\">  <label  id=\"sport"+sport+"Check\"for=\"sport_"+sport+"_checkbox\"> <div id=\"tick_mark"+inc+"\"></div>  </label></div>";
+  let schoolCheckLabel = document.createElement("h2");
+  schoolCheckLabel.innerHTML = "School Event";
+  let schoolCheckLabelDiv = document.createElement("div");
+  schoolCheckLabelDiv.id = "SchoolCheckLabelDiv";
+  schoolCheckLabelDiv.appendChild(schoolCheckLabel);
+  selectSchool.appendChild(schoolCheckLabelDiv);
+}
+function sportClickFunc(){}
+function fillSchoolEvent() {}

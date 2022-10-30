@@ -10,6 +10,7 @@ let currSelectedSport;
 let spefSporth2;
 let spefSeasonh2;
 let spefSportText;
+let addedElements=false;
 let selectSportContainer;
 let school_checkbox;
 let sport_checkbox;
@@ -468,12 +469,13 @@ function selectSportSetup() {
   spefSportContainer.id = "spefSportContainer";
   for (let i = 0; i < fallSports.length; i++) {
     selectSportFunction(fallSports[i].ScreenName);
+    document.getElementById(""+fallSports[i].ScreenName).onclick = function () {
+      console.log(fallSports[i].ScreenName);
+    };
   }
+  addedElements=true;
 }
-let ccc = document.getElementById("XC");
-ccc.onclick = function () {
-  console.log("selectedSport");
-};
+
 function selectSportFunction(sport) {
   let selectSpefSport = document.createElement("div");
   selectSpefSport.id = "selectSpefSport";
@@ -484,16 +486,6 @@ function selectSportFunction(sport) {
   selectSpefSport.appendChild(spefSportCheckLabel);
   spefSportContainer.appendChild(selectSpefSport);
   selectSportContainer.appendChild(spefSportContainer);
-  // document.getElementById(selectSpefSport.id).addEventListener("click", selectedSport(selectSpefSport));
-}
-function selectedSport() {
-  // if(currSelectedSport){
-  //   currSelectedSport.style.backgroundColor="black";
-  // }
-  // currSelectedSport=selected;
-  // currSelectedSport.style.backgroundColor="red";
-  // console.log(selected);
-  console.log("selected");
 }
 function sportClickFunc() {}
 function fillSchoolEvent() {}

@@ -11,7 +11,9 @@ let logo = document.getElementById("logo");
 let spotlightMain = document.getElementById("spotlight");
 let nameMain = document.getElementById("name");
 let navbar = document.getElementById("navbar");
+let fillOutEvent = document.getElementById("addEvent");
 let xc = document.getElementById("XC");
+let addedEvent = false;
 let placeHolder = document.getElementById("placeHolder");
 let mainContainer = document.getElementById("main");
 let navbarItems = document.querySelectorAll("#navbar h2");
@@ -32,7 +34,7 @@ let oneDropDown = document.getElementById("oneDrop");
 let twoDropDown = document.getElementById("twoDrop");
 let threeDropDown = document.getElementById("threeDrop");
 let dark = false;
-let addEventButton=document.getElementById("addIcon");
+let addEventButton = document.getElementById("addIcon");
 let extDropDown = document.getElementById("extDropDown");
 let discoverBannerStop = document.querySelector("#discoverBanner h2");
 let mainItems = [eventMain, signInMain, spotlightMain, nameMain];
@@ -163,9 +165,7 @@ fall.onclick = function () {
   }, 3000);
   sportsExp.style.opacity = "0";
 };
-function newEvent(){
-
-}
+function newEvent() {}
 function newGame(
   usr_sport,
   usr_team1_name,
@@ -180,20 +180,20 @@ function newGame(
   sportsEvent.id = "SportsEvent";
   let sport = document.createElement("div");
   sport.id = "sport";
-  sport.innerHTML = ""+usr_sport;
+  sport.innerHTML = "" + usr_sport;
   let teams = document.createElement("div");
   teams.id = "teams";
   let team1 = document.createElement("div");
   team1.id = "team1";
   let team1_name = document.createElement("h1");
-  team1_name.innerHTML = ""+usr_team1_name;
+  team1_name.innerHTML = "" + usr_team1_name;
   let team1_score = document.createElement("h2");
-  team1_score.innerHTML = ""+usr_team1_score;
+  team1_score.innerHTML = "" + usr_team1_score;
   let team2 = document.createElement("div");
   let team2_name = document.createElement("h1");
-  team2_name.innerHTML = ""+usr_team2_name;
+  team2_name.innerHTML = "" + usr_team2_name;
   let team2_score = document.createElement("h2");
-  team2_score.innerHTML = ""+usr_team2_score;
+  team2_score.innerHTML = "" + usr_team2_score;
   team1.appendChild(team1_name);
   team1.appendChild(team1_score);
   team2.appendChild(team2_name);
@@ -202,11 +202,11 @@ function newGame(
   let information = document.createElement("div");
   information.id = "information";
   let info_date = document.createElement("p");
-  info_date.innerHTML = ""+usr_info_date;
+  info_date.innerHTML = "" + usr_info_date;
   let info_time = document.createElement("p");
-  info_time.innerHTML = ""+usr_info_time;
+  info_time.innerHTML = "" + usr_info_time;
   let info_location = document.createElement("p");
-  info_location.innerHTML = "@"+usr_info_location;
+  info_location.innerHTML = "@" + usr_info_location;
   information.appendChild(info_date);
   information.appendChild(info_time);
   information.appendChild(info_location);
@@ -309,14 +309,44 @@ infoPage.onclick = function () {
 function expandNavBar() {
   mainContainer.style.width = "100%";
 }
-xc.onclick=function () {
+xc.onclick = function () {
   window.location.href = "index.html";
 };
-addEventButton.onclick=function () {
-  addEventButton.style.transition="all 3s"
-  addEventButton.style.transform="rotate(180deg)";
+addEventButton.onclick = function () {
+  addEventButton.style.transition = "all 3s";
+  addEventButton.style.transform = "rotate(360deg)";
+  addEvent();
 };
-function addEvent(){
+function addEvent() {
   // all of the code, where the box is expanded and the text boxes are open, so the user can fill out all of the fields.
   // a calendar is dropped down as well to add the event.
-};
+
+  let selectEventContainer = document.createElement("div");
+  selectEventContainer.id = "selectEventContainer";
+
+  let selectSchool = document.createElement("div");
+  selectSchool.id = "selectSchool";
+  selectSchool.innerHTML =
+    '<div id="selectSchoolDiv"><input type="checkbox" id="school_checkbox">  <label  id="schoolCheck"for="school_checkbox"> <div id="tick_mark"></div>  </label></div>';
+  let schoolCheckLabel = document.createElement("h2");
+  schoolCheckLabel.innerHTML = "School Event";
+  let schoolCheckLabelDiv = document.createElement("div");
+  schoolCheckLabelDiv.id = "SchoolCheckLabelDiv";
+  schoolCheckLabelDiv.appendChild(schoolCheckLabel);
+  selectSchool.appendChild(schoolCheckLabelDiv);
+
+  let selectSport = document.createElement("div");
+  selectSport.id = "selectSport";
+  selectSport.innerHTML =
+    '<div id="selectSportDiv"><input type="checkbox" id="sport_checkbox">  <label  id="sportCheck"for="sport_checkbox"> <div id="tick_mark2"></div>  </label></div>';
+  let sportCheckLabel = document.createElement("h2");
+  sportCheckLabel.innerHTML = "Sport Event";
+  let sportCheckLabelDiv = document.createElement("div");
+  sportCheckLabelDiv.id = "SportCheckLabelDiv";
+  sportCheckLabelDiv.appendChild(sportCheckLabel);
+  selectSport.appendChild(sportCheckLabelDiv);
+  
+  selectEventContainer.appendChild(selectSport);
+  selectEventContainer.appendChild(selectSchool);
+  fillOutEvent.appendChild(selectEventContainer);
+}

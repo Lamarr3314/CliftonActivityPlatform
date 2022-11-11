@@ -3,14 +3,18 @@ let cMove = document.getElementById("c");
 let aMove = document.getElementById("a");
 let spefSportContainer;
 let spefSeasonContainer;
+let spefGenderContainer;
 let selectSeasonContainer;
+let selectGenderContainer;
 let trackProgressSport = false;
 let pressedEvent = false;
+let spefGenderh2;
 let currSelectedSport;
+let spefGenderText;
 let spefSporth2;
 let spefSeasonh2;
 let spefSportText;
-let addedElements=false;
+let addedElements = false;
 let selectSportContainer;
 let school_checkbox;
 let sport_checkbox;
@@ -25,7 +29,6 @@ let spotlightMain = document.getElementById("spotlight");
 let nameMain = document.getElementById("name");
 let navbar = document.getElementById("navbar");
 let fillOutEvent = document.getElementById("addEvent");
-let xc = document.getElementById("XC");
 let addedEvent = false;
 let placeHolder = document.getElementById("placeHolder");
 let mainContainer = document.getElementById("main");
@@ -72,12 +75,19 @@ class Sport {
     return list;
   }
 }
+class Season {
+  constructor(ScreenName, DatabaseName, list) {
+    this.ScreenName = ScreenName;
+    this.DatabaseName = DatabaseName;
+    this.list = list;
+  }
+}
 class mixedGender extends Sport {
   constructor(ScreenName, DatabaseName) {
     super(ScreenName, DatabaseName);
   }
   getDatabaseName(gender) {
-    return gender + this.DatabaseName;
+    return gender.toLowerCase() + this.DatabaseName;
   }
   getGenders() {
     return ["Male", "Female"];
@@ -99,20 +109,28 @@ let Soccer = new mixedGender("Soccer", "_soccer");
 let fTennis = new Sport("Tennis", "female_tennis");
 let mFootball = new Sport("Football", "male_football");
 let gVolleyball = new Sport("Volleyball", "female_volleyball");
-let springSports = [
+let winterSports = new Season("Winter", "winter", [
+  Basketball,
+  Hockey,
+  Wrestling,
+  Swimming,
+]);
+let fallSports = new Season("Fall", "fall", [
+  XC,
+  mFootball,
+  Soccer,
+  fTennis,
+  gVolleyball,
+]);
+let springSports = new Season("Spring", "spring", [
   mBaseball,
   fSoftball,
   mTennis,
   mVolleyball,
   fFootball,
   Track,
-];
-let winterSports = [Basketball, Hockey, Wrestling, Swimming];
-let fallSports = [XC, mFootball, Soccer, fTennis, gVolleyball];
-
-console.log(fSoftball.getGenders());
-let names = Track.getDatabaseName("male");
-console.log(names);
+]);
+let seasons = [springSports, winterSports, fallSports];
 const States = {
   homePage: true,
   firstDrop: false,
@@ -380,9 +398,6 @@ infoPage.onclick = function () {
 function expandNavBar() {
   mainContainer.style.width = "100%";
 }
-xc.onclick = function () {
-  window.location.href = "index.html";
-};
 addEventButton.onclick = function () {
   addEventButton.style.transition = "all 3s";
   addEventButton.style.transform = "rotate(360deg)";
@@ -438,10 +453,83 @@ function selectSchool() {
 }
 function fillNewSport() {
   selectSeasonSetup();
-  selectSportSetup();
-  selectGenderSetup();
 }
-function selectGenderSetup() {}
+function selectGenderSetup(sport) {
+  selectGenderContainer = document.createElement("div");
+  selectGenderContainer.id = "selectGenderContainer";
+  spefGenderContainer = document.createElement("div");
+  fillOutEvent.appendChild(selectGenderContainer);
+  spefGenderText = document.createElement("div");
+  spefGenderText.id = "spefGenderText";
+  spefGenderh2 = document.createElement("h2");
+  spefGenderh2.innerHTML = "Select Gender";
+  spefGenderText.appendChild(spefGenderh2);
+  selectGenderContainer.appendChild(spefGenderText);
+  spefGenderContainer.id = "selectGenderContainer";
+  let genderList = sport.getGenders();
+  for (let i = 0; i < genderList.length; i++) {
+    selectGenderFunction(genderList[i]);
+    document.getElementById("" + genderList[i]).onclick = function () {
+      processStep1(sport.getDatabaseName(genderList[i]), true);
+    };
+  }
+}
+function processStep1(databaseAddress, defaultSetup) {
+  if (defaultSetup) {
+    deleteExcess();
+    addStep1Label(databaseAddress);
+    startStep2();
+  }
+  return databaseAddress;
+}
+function startStep2(){
+  addCalendar();
+
+}
+function addCalendar(){
+  let selectDateContainer=document.createElement("div");
+  selectDateContainer.id = "selectDateContainer";
+  let selectDateh2Container=document.createElement("div");
+  selectDateh2Container.id="selectDateh2Container";
+  let selectDateh2=document.createElement("h2");
+  selectDateh2.innerHTML= "Select Date";
+  selectDateh2Container.appendChild(selectDateh2);
+  selectDateContainer.appendChild(selectDateh2Container);
+  let calendarForm=document.createElement("form");
+  calendarForm.id="calendarForm";
+  let calendarLabel=document.createElement("label");
+  calendarLabel.id="calendarLabel";
+  let calendar=document.createElement("input");
+  calendar.id = "calendar";
+  calendar.type="date";
+  calendar.value="2022-10-11";
+  calendar.value.style="font-family: 'Chakra Petch', sans-serif;"
+  calendarLabel.appendChild(calendar);
+  calendarForm.appendChild(calendarLabel);
+  selectDateContainer.appendChild(calendarForm);
+  fillOutEvent.appendChild(selectDateContainer);
+}
+function inputName(){
+  
+}
+function deleteExcess() {
+  document.getElementById("selectEventContainer").style.display = "none";
+  document.getElementById("selectSportContainer").style.display = "none";
+  document.getElementById("selectGenderContainer").style.display = "none";
+  document.getElementById("selectSeasonContainer").style.display = "none";
+}
+function addStep1Label(name) {
+  let nameList = name.split("_");
+  for (let i = 0; i < nameList.length; i++) {
+    nameList[i][0] = nameList[i][0].toUpperCase();
+  }
+  let titleContainer = document.createElement("div");
+  titleContainer.id = "titleContainer";
+  let titleh2 = document.createElement("h2");
+  titleh2.innerHTML = nameList[0] + " " + nameList[1];
+  titleContainer.appendChild(titleh2);
+  fillOutEvent.appendChild(titleContainer);
+}
 function selectSeasonSetup() {
   selectSeasonContainer = document.createElement("div");
   selectSeasonContainer.id = "selectSeasonContainer";
@@ -454,8 +542,14 @@ function selectSeasonSetup() {
   spefSeasonText.appendChild(spefSeasonh2);
   selectSeasonContainer.appendChild(spefSeasonText);
   spefSeasonContainer.id = "spefSeasonContainer";
+  for (let i = 0; i < seasons.length; i++) {
+    selectSeasonFunction(seasons[i].ScreenName);
+    document.getElementById("" + seasons[i].ScreenName).onclick = function () {
+      selectSportSetup(seasons[i]);
+    };
+  }
 }
-function selectSportSetup() {
+function selectSportSetup(season) {
   selectSportContainer = document.createElement("div");
   selectSportContainer.id = "selectSportContainer";
   spefSportContainer = document.createElement("div");
@@ -467,22 +561,43 @@ function selectSportSetup() {
   spefSportText.appendChild(spefSporth2);
   selectSportContainer.appendChild(spefSportText);
   spefSportContainer.id = "spefSportContainer";
-  for (let i = 0; i < fallSports.length; i++) {
-    selectSportFunction(fallSports[i].ScreenName);
-    document.getElementById(""+fallSports[i].ScreenName).onclick = function () {
-      console.log(fallSports[i].ScreenName);
-    };
+  for (let i = 0; i < season.list.length; i++) {
+    selectSportFunction(season.list[i].ScreenName);
+    document.getElementById("id_" + season.list[i].ScreenName).onclick =
+      function () {
+        selectGenderSetup(season.list[i]);
+      };
   }
-  addedElements=true;
 }
-
+function selectSeasonFunction(season) {
+  let selectSpefSeason = document.createElement("div");
+  selectSpefSeason.id = "selectSpefSeason";
+  selectSeasonContainer.appendChild(selectSpefSeason);
+  let spefSeasonCheckLabel = document.createElement("button");
+  spefSeasonCheckLabel.innerHTML = "<h2>" + season + "</h2>";
+  spefSeasonCheckLabel.id = "" + season;
+  selectSpefSeason.appendChild(spefSeasonCheckLabel);
+  spefSeasonContainer.appendChild(selectSpefSeason);
+  selectSeasonContainer.appendChild(spefSeasonContainer);
+}
+function selectGenderFunction(gender) {
+  let selectSpefGender = document.createElement("div");
+  selectSpefGender.id = "selectSpefGender";
+  selectGenderContainer.appendChild(selectSpefGender);
+  let spefGenderCheckLabel = document.createElement("button");
+  spefGenderCheckLabel.innerHTML = "<h2>" + gender + "</h2>";
+  spefGenderCheckLabel.id = "" + gender;
+  selectSpefGender.appendChild(spefGenderCheckLabel);
+  spefGenderContainer.appendChild(selectSpefGender);
+  selectGenderContainer.appendChild(spefGenderContainer);
+}
 function selectSportFunction(sport) {
   let selectSpefSport = document.createElement("div");
   selectSpefSport.id = "selectSpefSport";
   selectSportContainer.appendChild(selectSpefSport);
-  let spefSportCheckLabel = document.createElement("h2");
-  spefSportCheckLabel.innerHTML = "" + sport;
-  spefSportCheckLabel.id = "" + sport;
+  let spefSportCheckLabel = document.createElement("button");
+  spefSportCheckLabel.innerHTML = "<h2>" + sport + "</h2>";
+  spefSportCheckLabel.id = "id_" + sport;
   selectSpefSport.appendChild(spefSportCheckLabel);
   spefSportContainer.appendChild(selectSpefSport);
   selectSportContainer.appendChild(spefSportContainer);

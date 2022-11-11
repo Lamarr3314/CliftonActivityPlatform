@@ -1,4 +1,13 @@
 let container = document.getElementById("EventContainer");
+const progressBarText = document.querySelector(".progress-bar__text");
+const progressBar = document.querySelector(".progress-bar");
+const progressBarContainer = document.querySelector(".progress-bar__container");
+progressBarText.style.display = "initial";
+progressBarContainer.style.boxShadow = "0 0 5px #4895ef";
+let progressValue = progressBar.innerText.split("%")[0];
+progressBarText.style.paddingLeft = progressValue *.9 + 20 + "%";
+progressBar.style.transform = "translate(" + progressValue + "%)";
+console.log(progressValue);
 let cMove = document.getElementById("c");
 let aMove = document.getElementById("a");
 let pMove = document.getElementById("p");
@@ -18,7 +27,7 @@ let phonenavbar = document.getElementById("phonenavbar");
 let sportsExp = document.querySelector(".sportsExp");
 let maxWidth = 0.0;
 let all = document.getElementById("all");
-let allSports=document.getElementById("allSports");
+let allSports = document.getElementById("allSports");
 let infoDropDown = document.getElementById("infoDropDown");
 let infoPage = document.getElementById("name");
 let discoveryBanner = document.getElementById("discoveryBanner");
@@ -92,11 +101,11 @@ DarkMode.onclick = function () {
     darkFunction();
   }
 };
-allSports.onclick= function () {
+allSports.onclick = function () {
   window.location.href = "index.html";
   // save the selection in cookies, make api call
 };
-all.onclick= function () {
+all.onclick = function () {
   window.location.href = "index.html";
   // save the selection in cookies, make api call
 };

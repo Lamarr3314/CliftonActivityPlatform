@@ -1,200 +1,200 @@
 #information {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-family: Georgia, "Times New Roman", Times, serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+#teams {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+  font-family: "Dosis", sans-serif;
+}
+#sport {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: "Dosis", sans-serif;
+}
+#SpotlightContainer {
+  margin-top: 85px;
+  margin-left: 15%;
+  margin-right: 15%;
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 450px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.sportsExp {
+  z-index: 4;
+  top: 0;
+  margin-top: -67px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 90%;
+  margin-left: 8%;
+  transform: translateY(-75px);
+}
+#SpotlightContainer:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #c53211,
+    #c54211,
+    #c55211,
+    #c56211,
+    #c57211,
+    #c58211,
+    #c59211,
+    #c52211,
+    #c51211
+  );
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 13px);
+  height: calc(100% + 13px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 45px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+#SpotlightContainer:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #df3d1c;
+  left: 0;
+  top: 0;
+  border-radius: 45px;
+}
+body {
+  background-color: #dbc7a6de;
+}
+@media only screen and (max-width: 600px) {
+  #SpotlightContainer {
+    margin-left: 5%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-right: 5%;
   }
   #teams {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: center;
-    font-family: "Dosis", sans-serif;
+    justify-content: space-evenly;
+    padding-left: 0px;
+    padding-right: 0px;
   }
-  #sport {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-family: "Dosis", sans-serif;
-  }
-  #SportsEvent {
-    margin-top: 85px;
-    margin-left: 15%;
-    margin-right: 15%;
-    padding: 0.6em 2em;
-    border: none;
-    outline: none;
-    background: #111;
-    cursor: pointer;
-    position: relative;
-    z-index: 0;
-    border-radius: 450px;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-  }
-  .sportsExp {
-    z-index: 4;
-    top: 0;
-    margin-top: -67px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 90%;
-    margin-left: 8%;
-    transform: translateY(-75px);
-  }
-  #SportsEvent:before {
-    content: "";
-    background: linear-gradient(
-      45deg,
-      #c53211,
-      #c54211,
-      #c55211,
-      #c56211,
-      #c57211,
-      #c58211,
-      #c59211,
-      #c52211,
-      #c51211
-    );
-    position: absolute;
-    top: -6px;
-    left: -6px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
-    width: calc(100% + 13px);
-    height: calc(100% + 13px);
-    animation: glowing-button-85 20s linear infinite;
-    transition: opacity 0.3s ease-in-out;
-    border-radius: 45px;
-  }
-  
-  @keyframes glowing-button-85 {
-    0% {
-      background-position: 0 0;
-    }
-    50% {
-      background-position: 400% 0;
-    }
-    100% {
-      background-position: 0 0;
-    }
-  }
-  
-  #SportsEvent:after {
-    z-index: -1;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #df3d1c;
-    left: 0;
-    top: 0;
-    border-radius: 45px;
-  }
-  body {
-    background-color: #dbc7a6de;
-  }
-  @media only screen and (max-width: 600px) {
-    #SportsEvent {
-      margin-left: 5%;
-      padding-left: 0px;
-      padding-right: 0px;
-      margin-right: 5%;
-    }
-    #teams {
-      justify-content: space-evenly;
-      padding-left: 0px;
-      padding-right: 0px;
-    }
-  }
-  #DarkMode {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  /* Hide default HTML checkbox */
-  #DarkMode input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: black;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: #c53211;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #dbc7a6de;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #dbc7a6de;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
-  #DarkMode {
-    position: absolute;
-    position: fixed;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-    margin-left: 10px;
-    margin-bottom: 20px;
-  }
-  #main {
-    position: sticky;
-    top: 0;
-    z-index: 2;
-    display: flex;
-    flex-direction: row;
-    border: 1px solid #c51211;
-    border-bottom-left-radius: 300px;
-    border-bottom-right-radius: 300px;
-    height: 85px;
-    -webkit-transition: width 2s ease;
-    -moz-transition: width 2s ease;
-         transition: width 2s ease;
-    /* clip-path: 
+}
+#DarkMode {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+#DarkMode input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #c53211;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #dbc7a6de;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #dbc7a6de;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+#DarkMode {
+  position: absolute;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+#main {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #c51211;
+  border-bottom-left-radius: 300px;
+  border-bottom-right-radius: 300px;
+  height: 85px;
+  -webkit-transition: width 2s ease;
+  -moz-transition: width 2s ease;
+  transition: width 2s ease;
+  /* clip-path: 
     polygon(
       0% 29%,
       5% 0%,
@@ -206,209 +206,277 @@
       0 75%
     ); 
     */
-  }
-  #logo:hover {
-    cursor: grab;
-  }
-  #navbar {
-    position: sticky;
-    top: 0;
-    z-index: 3;
-    background-color: #dbc7a6de;
-    height: 85px;
-    background-blend-mode: luminosity;
-    margin: auto;
-  }
-  #main h2,
-  #Expanded h2,
-  .sportsExp h2,
-  #fallExp div h2 {
-    text-align: center;
-    color: black;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 6px;
-    font-family: "Chakra Petch", sans-serif;
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-  }
-  #main h2:hover,
-  #Expanded h2:hover,
-  .sportsExp h2:hover,
-  #fallExp h2:hover,
-  #springExp h2:hover {
-    background-color: #e13c1c;
-    cursor: pointer;
-    border-radius: 80px;
-  }
-  #navBarSpace {
-    margin-top: 130px;
-  }
-  #logo img {
-    width: 100px;
-    margin-top: -8px;
-  }
+}
+#logo:hover {
+  cursor: grab;
+}
+#navbar {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background-color: #dbc7a6de;
+  height: 85px;
+  background-blend-mode: luminosity;
+  margin: auto;
+}
+#main h2,
+#Expanded h2,
+.sportsExp h2,
+#fallExp div h2 {
+  text-align: center;
+  color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 6px;
+  font-family: "Chakra Petch", sans-serif;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+}
+#main h2:hover,
+#Expanded h2:hover,
+.sportsExp h2:hover,
+#fallExp h2:hover,
+#springExp h2:hover {
+  background-color: #e13c1c;
+  cursor: pointer;
+  border-radius: 80px;
+}
+#navBarSpace {
+  margin-top: 130px;
+}
+#logo img {
+  width: 100px;
+  margin-top: -8px;
+}
+#logo {
+  margin-left: -80px;
+}
+#Expanded {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 10%;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+#spotlight {
+  margin-left: -90px;
+}
+#name {
+  margin-left: -50px;
+}
+#phonenavbar {
+  display: none;
+}
+#Expanded,
+#fallExp,
+#springExp {
+  opacity: 0;
+  transform: translateY(-75px);
+  justify-content: space-around;
+  justify-content: space-evenly;
+  margin-top: -84px;
+  border-bottom-left-radius: 300px;
+  border-bottom-right-radius: 300px;
+  width: 90%;
+  height: 85px;
+  padding-bottom: -10px;
+  z-index: 2;
+}
+.sportsExp {
+  opacity: 0;
+}
+@media only screen and (max-width: 1600px) {
   #logo {
     margin-left: -80px;
   }
-  #Expanded {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-left: 10%;
-    position: sticky;
-    top: 0;
-    z-index: 3;
-  }
   #spotlight {
-    margin-left: -90px;
   }
   #name {
     margin-left: -50px;
   }
-  #phonenavbar {
+}
+@media only screen and (max-width: 1250px) {
+  #logo {
+    margin-left: -100px;
+  }
+  #spotlight {
+    margin-left: -100px;
+  }
+  #name {
+    margin-left: -30px;
+  }
+}
+@media only screen and (max-width: 930px) {
+  #navbar {
     display: none;
   }
-  #Expanded,
-  #fallExp,
-  #springExp {
-    opacity: 0;
-    transform: translateY(-75px);
-    justify-content: space-around;
-    justify-content: space-evenly;
-    margin-top: -84px;
-    border-bottom-left-radius: 300px;
-    border-bottom-right-radius: 300px;
-    width: 90%;
-    height: 85px;
-    padding-bottom: -10px;
-    z-index: 2;
-  }
-  .sportsExp {
-    opacity: 0;
-  }
-  @media only screen and (max-width: 1600px) {
-    #logo {
-      margin-left: -80px;
-    }
-    #spotlight {
-    }
-    #name {
-      margin-left: -50px;
-    }
-  }
-  @media only screen and (max-width: 1250px) {
-    #logo {
-      margin-left: -100px;
-    }
-    #spotlight {
-      margin-left: -100px;
-    }
-    #name {
-      margin-left: -30px;
-    }
-  }
-  @media only screen and (max-width: 930px) {
-    #navbar {
-      display: none;
-    }
-    #phonenavbar {
-      display: flex;
-      position: fixed;
-      justify-content: space-between;
-      flex-direction: row;
-      align-items: center;
-      background-color: #dbc7a6de;
-      border: 1px solid #c51211;
-      width: 100%;
-      z-index: 3;
-      top: 0;
-      left: 0;
-      height: 50px;
-      border-radius: 100px;
-      text-align: center;
-      margin-top: 1px;
-    }
-    #phonenavbar img {
-      width: 50px;
-    }
-    #title {
-      justify-self: center;
-      font-family: "Chakra Petch", sans-serif;
-    }
-  }
-  #Expanded h2,
-  .sportsExp h2,
-  #fallExp h2,
-  #springExp h2 {
-    padding-bottom: 8px;
-  }
-  .sportsExp div img,
-  #fallExp div img {
-    margin-bottom: -20px;
-    width: 45px;
-  }
-  #fallExp,
-  #winterExp,
-  #springExp {
+  #phonenavbar {
     display: flex;
+    position: fixed;
+    justify-content: space-between;
     flex-direction: row;
-    justify-content: space-evenly;
-    margin-top: -105px;
-    z-index: 5;
-    opacity: 0;
-  }
-  #fallExp {
-    margin-left: 6%;
-  }
-  @media only screen and (max-width: 1330px) {
-    #fallExp {
-      margin-left: 8%;
-    }
-  }
-  @media only screen and (max-width: 1130px) {
-    #fallExp {
-      margin-left: 10.2%;
-    }
-  }
-  #discoverBanner {
-    transform: translateY(-200px);
-    display: flex;
     align-items: center;
-    justify-content: center;
-    font-family: "League Spartan", sans-serif;
-    font-size: 25px;
+    background-color: #dbc7a6de;
+    border: 1px solid #c51211;
+    width: 100%;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    height: 50px;
+    border-radius: 100px;
+    text-align: center;
+    margin-top: 1px;
   }
-  #discoveryBanner h2{
-    opacity: 0;
+  #phonenavbar img {
+    width: 50px;
   }
-  #infoDropDown, #extDropDown{
-    transform: translateY(-300px);
-    display: flex;
-    flex-direction: row;
-    width: 950px;
-    margin: auto;
+  #title {
+    justify-self: center;
+    font-family: "Chakra Petch", sans-serif;
   }
-  #infoDropDown h2, #extDropDown h2{
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 25px;
+}
+#Expanded h2,
+.sportsExp h2,
+#fallExp h2,
+#springExp h2 {
+  padding-bottom: 8px;
+}
+.sportsExp div img,
+#fallExp div img {
+  margin-bottom: -20px;
+  width: 45px;
+}
+#fallExp,
+#winterExp,
+#springExp {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: -105px;
+  z-index: 5;
+  opacity: 0;
+}
+#fallExp {
+  margin-left: 6%;
+}
+@media only screen and (max-width: 1330px) {
+  #fallExp {
+    margin-left: 8%;
   }
-  #oneDrop{
-    margin-left: 28.35%;
+}
+@media only screen and (max-width: 1130px) {
+  #fallExp {
+    margin-left: 10.2%;
   }
-  #oneDrop{
-    margin-right: 15.9%;
-  }
-  #twoDrop{
-    margin-right: 14.9%;
-  }
-  #main{
-    justify-content: space-around;
-  }
+}
+#discoverBanner {
+  transform: translateY(-200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "League Spartan", sans-serif;
+  font-size: 25px;
+}
+#discoveryBanner h2 {
+  opacity: 0;
+}
+#infoDropDown,
+#extDropDown {
+  transform: translateY(-300px);
+  display: flex;
+  flex-direction: row;
+  width: 950px;
+  margin: auto;
+}
+#infoDropDown h2,
+#extDropDown h2 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 25px;
+}
+#oneDrop {
+  margin-left: 28.35%;
+}
+#oneDrop {
+  margin-right: 15.9%;
+}
+#twoDrop {
+  margin-right: 14.9%;
+}
+#main {
+  justify-content: space-around;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-bar__container {
+  width: 80%;
+  height: 2rem;
+  border-radius: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s;
+  will-change: transform;
+  box-shadow: 0 0 5px #e76f51;
+}
+
+.progress-bar {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  content: "";
+  background-color: #e76f51;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  border-radius: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: sans-serif;
+}
+.progress-bar__text {
+  display: none;
+  padding-left: 30%;
+}
+#contestant1Photo {
+  border-radius: 180px;
+  width: 250px;
+}
+#spotlightTitle {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+#like_1 {
+  width: 100px;
+  padding-bottom: 10px;
+  border: none;
+}
+#like_1_button {
+  border-radius: 300px;
+  border: none;
+  background-color: #111;
+  box-shadow: 0 -2px 10px #c52211;
+}
+#contestant1{
+  margin-top: 30px;
+  background-color: #ececc0;
+  border-radius: 200px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 -2px 10px #dbc7a6de;
+}

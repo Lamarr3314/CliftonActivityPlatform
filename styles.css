@@ -925,12 +925,19 @@ input:checked + .slider:before {
   color: #c51211;
 }
 #titleContainer {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 #titleContainer h2 {
   font-family: "Chakra Petch", sans-serif;
-  font-size: 23px;
-  color: #c51211;
+  font-size: 26px;
+  color: rgb(46, 46, 46);
+  background-color: #c52211;
+  box-shadow: 0 -2px 10px #c52211;
+  border-radius: 100px;
+  width: max-content;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 #calendarForm {
   display: flex;
@@ -947,4 +954,89 @@ input:checked + .slider:before {
   font-family: "Chakra Petch", sans-serif;
   font-size: 23px;
   color: #c51211;
+}
+#selectDateh2,
+#nameh2,
+#timeTitleh2,
+#inputMessageh2 {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 23px;
+  color: #c51211;
+  text-align: center;
+}
+#team1Container,
+#team2Container {
+  display: flex;
+  flex-direction: column;
+}
+#team1Name,
+#team2Name {
+  width: min-content;
+}
+#team1Score,
+#team2Score {
+  width: 100px;
+  margin-left: 30%;
+}
+#team1Name,
+#team2Name,
+#team1Score,
+#team2Score {
+  background-color: #111;
+  border: 0;
+  border-bottom: 2px solid rgb(36, 36, 36);
+}
+#bothTeamContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+input[type="text" i] {
+  padding: 0px 0px;
+}
+*:focus {
+  outline: none;
+}
+#timeContainer {
+  display: flex;
+  justify-content: center;
+}
+#timeInput {
+  background-color: #c52211;
+  box-shadow: 0 -2px 10px #c52211;
+  border: transparent;
+  padding: 15px;
+  border-radius: 300px;
+}
+#inputMessage {
+  background-color: #111;
+  border: 0;
+  border-bottom: 2px solid rgb(36, 36, 36);
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Dosis", sans-serif;
+  color: #c51211;
+}
+input[type="text"] {
+  text-align: center;
+  font-size: 30px;
+  font-family: "Dosis", sans-serif;
+  color: #c51211;
+}
+#submitEvent {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  box-shadow: 0 -2px 10px #c52211;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 23px;
+  color: #c51211;
+  border-radius:100px ;
+  background-color: #111;
+  border: none;
+}
+#submitEventDiv{
+  display: flex;
+  justify-content: center;
 }

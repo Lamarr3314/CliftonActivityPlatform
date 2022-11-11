@@ -477,58 +477,134 @@ function selectGenderSetup(sport) {
 function processStep1(databaseAddress, defaultSetup) {
   if (defaultSetup) {
     deleteExcess();
-    addStep1Label(databaseAddress);
-    startStep2();
+    startStep2(databaseAddress);
   }
   return databaseAddress;
 }
-function startStep2(){
+function startStep2(databaseAddress) {
   addCalendar();
-
+  inputName();
+  inputTime();
+  inputMessage(databaseAddress);
+  submitEvent();
 }
-function addCalendar(){
-  let selectDateContainer=document.createElement("div");
+function submitEvent() {
+  let submitEvent = document.createElement("button");
+  let submitEventDiv = document.createElement("div");
+  submitEventDiv.id = "submitEventDiv";
+  submitEvent.id = "submitEvent";
+  submitEvent.innerHTML = "Post Event";
+  submitEventDiv.appendChild(submitEvent);
+  fillOutEvent.appendChild(submitEventDiv);
+  addGameToDatabase("game");
+}
+function addGameToDatabase(game) {
+  console.log("added to Database");
+}
+function inputTime() {
+  let timeTitle = document.createElement("div");
+  timeTitle.id = "timeTitle";
+  let timeTitleh2 = document.createElement("h2");
+  timeTitleh2.id = "timeTitleh2";
+  timeTitleh2.innerHTML = "Input Time";
+  timeTitle.appendChild(timeTitleh2);
+  fillOutEvent.appendChild(timeTitle);
+  let timeContainer = document.createElement("div");
+  timeContainer.id = "timeContainer";
+  let timeInput = document.createElement("input");
+  timeInput.type = "time";
+  timeInput.id = "timeInput";
+  timeContainer.appendChild(timeInput);
+  fillOutEvent.appendChild(timeContainer);
+}
+function inputMessage(databaseAddress) {
+  let inputMessageTitle = document.createElement("div");
+  inputMessageTitle.id = "inputMessageTitle";
+  let inputMessageh2 = document.createElement("h2");
+  inputMessageh2.id = "inputMessageh2";
+  inputMessageh2.innerHTML = "Add a Message";
+  let inputMessage = document.createElement("input");
+  inputMessage.id = "inputMessage";
+  let name=databaseAddress.split("_");
+  inputMessage.value = "Come out and support our " + name[1] + " team!";
+  let inputMessageDiv = document.createElement("div");
+  inputMessageDiv.id = "inputMessageDiv";
+  inputMessageDiv.appendChild(inputMessage);
+  inputMessageTitle.appendChild(inputMessageh2);
+  fillOutEvent.appendChild(inputMessageTitle);
+  fillOutEvent.appendChild(inputMessageDiv);
+}
+function addCalendar() {
+  let selectDateContainer = document.createElement("div");
   selectDateContainer.id = "selectDateContainer";
-  let selectDateh2Container=document.createElement("div");
-  selectDateh2Container.id="selectDateh2Container";
-  let selectDateh2=document.createElement("h2");
-  selectDateh2.innerHTML= "Select Date";
+  let selectDateh2Container = document.createElement("div");
+  selectDateh2Container.id = "selectDateh2Container";
+  let selectDateh2 = document.createElement("h2");
+  selectDateh2.id = "selectDateh2";
+  selectDateh2.innerHTML = "Select Date";
   selectDateh2Container.appendChild(selectDateh2);
   selectDateContainer.appendChild(selectDateh2Container);
-  let calendarForm=document.createElement("form");
-  calendarForm.id="calendarForm";
-  let calendarLabel=document.createElement("label");
-  calendarLabel.id="calendarLabel";
-  let calendar=document.createElement("input");
+  let calendarForm = document.createElement("form");
+  calendarForm.id = "calendarForm";
+  let calendarLabel = document.createElement("label");
+  calendarLabel.id = "calendarLabel";
+  let calendar = document.createElement("input");
   calendar.id = "calendar";
-  calendar.type="date";
-  calendar.value="2022-10-11";
-  calendar.value.style="font-family: 'Chakra Petch', sans-serif;"
+  calendar.type = "date";
+  calendar.value = "2022-10-11";
+  calendar.value.style = "font-family: 'Chakra Petch', sans-serif;";
   calendarLabel.appendChild(calendar);
   calendarForm.appendChild(calendarLabel);
   selectDateContainer.appendChild(calendarForm);
   fillOutEvent.appendChild(selectDateContainer);
 }
-function inputName(){
-  
+function inputName() {
+  let nameContainer = document.createElement("div");
+  nameContainer.id = "nameContainer";
+  let nameh2 = document.createElement("h2");
+  nameh2.id = "nameh2";
+  nameh2.innerHTML = "Game Results";
+  nameContainer.appendChild(nameh2);
+  fillOutEvent.appendChild(nameContainer);
+  let bothTeamContainer = document.createElement("div");
+  bothTeamContainer.id = "bothTeamContainer";
+  let team1Container = document.createElement("div");
+  team1Container.id = "team1Container";
+  let team2Container = document.createElement("div");
+  team2Container.id = "team2Container";
+  let team1Name = document.createElement("input");
+  team1Name.id = "team1Name";
+  team1Name.type = "text";
+  team1Name.value = "Clifton";
+  team1Container.appendChild(team1Name);
+  let team1Score = document.createElement("input");
+  team1Score.id = "team1Score";
+  team1Score.type = "text";
+  team1Score.value = "0";
+  let team1ScoreDiv = document.createElement("div");
+  team1ScoreDiv.appendChild(team1Score);
+  team1Container.appendChild(team1ScoreDiv);
+  let team2Name = document.createElement("input");
+  team2Name.id = "team2Name";
+  team2Name.type = "text";
+  team2Name.value = "Team 2";
+  team2Container.appendChild(team2Name);
+  let team2Score = document.createElement("input");
+  team2Score.type = "text";
+  team2Score.id = "team2Score";
+  team2Score.value = "0";
+  let team2ScoreDiv = document.createElement("div");
+  team2ScoreDiv.appendChild(team2Score);
+  team2Container.appendChild(team2ScoreDiv);
+  bothTeamContainer.appendChild(team1Container);
+  bothTeamContainer.appendChild(team2Container);
+  fillOutEvent.appendChild(bothTeamContainer);
 }
 function deleteExcess() {
   document.getElementById("selectEventContainer").style.display = "none";
   document.getElementById("selectSportContainer").style.display = "none";
   document.getElementById("selectGenderContainer").style.display = "none";
   document.getElementById("selectSeasonContainer").style.display = "none";
-}
-function addStep1Label(name) {
-  let nameList = name.split("_");
-  for (let i = 0; i < nameList.length; i++) {
-    nameList[i][0] = nameList[i][0].toUpperCase();
-  }
-  let titleContainer = document.createElement("div");
-  titleContainer.id = "titleContainer";
-  let titleh2 = document.createElement("h2");
-  titleh2.innerHTML = nameList[0] + " " + nameList[1];
-  titleContainer.appendChild(titleh2);
-  fillOutEvent.appendChild(titleContainer);
 }
 function selectSeasonSetup() {
   selectSeasonContainer = document.createElement("div");

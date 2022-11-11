@@ -34,10 +34,10 @@
   -webkit-user-select: none;
   touch-action: manipulation;
 }
-#addEvent{
+#addEvent {
   cursor: auto;
 }
-#spefSportContainer div{
+#spefSportContainer div {
   cursor: pointer;
 }
 .sportsExp {
@@ -469,7 +469,8 @@ input:checked + .slider:before {
   margin-right: 50px;
 }
 #spefSportText h2,
-#spefSeasonText h2 {
+#spefSeasonText h2,
+#spefGenderText h2 {
   width: 100%;
   color: rgb(224, 83, 28);
   font-family: "Chakra Petch", sans-serif;
@@ -613,27 +614,27 @@ input:checked + .slider:before {
   border-radius: 100px;
   border: 3px solid rgba(58, 58, 58, 0.856);
 }
-#selectSpefSport {
+/* #selectSpefSport {
   text-align: center;
   margin-left: 14px;
   margin-right: 14px;
   margin-bottom: 16px;
-  border-radius: 30px;
-  /* margin-top: 10px; */
-  padding-top: 0px;
+  border-radius: 30px; */
+/* margin-top: 10px; */
+/* padding-top: 0px;
   padding-bottom: 0px;
   box-shadow: 0 -2px 10px #c52211;
   padding-right: 0.7%;
   min-width: 177px;
-}
-#selectSpefSport h2 {
+} */
+/* #selectSpefSport h2 {
   padding-top: 5px;
   padding-bottom: 5px;
   margin-top: 0px;
   margin-bottom: 0px;
   font-family: "Chakra Petch", sans-serif;
   color: #c51211;
-}
+} */
 #selectSchoolDiv,
 #selectSportDiv {
   margin-top: 15px;
@@ -702,14 +703,21 @@ input:checked + .slider:before {
   }
 }
 #spefSportText,
-#spefSeasonText {
+#spefSeasonText,
+#spefGenderText {
   text-align: center;
 }
 #spefSportContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+}
+#spefSeasonContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 #spefSportContainer div {
   flex-basis: 10%;
@@ -886,4 +894,57 @@ input:checked + .slider:before {
 }
 #selectSpefSport {
   text-align: center;
+}
+#selectSpefSport button,
+#selectSpefSeason button,
+#selectSpefGender button {
+  text-align: center;
+  margin-left: 14px;
+  margin-right: 14px;
+  margin-bottom: 16px;
+  border-radius: 30px;
+  margin-top: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  box-shadow: 0 -2px 10px #c52211;
+  padding-right: 0.7%;
+  min-width: 177px;
+  border: transparent;
+  background-color: #111;
+  width: 100%;
+}
+#selectSpefSport button h2,
+#selectSpefSeason button h2,
+#selectSpefGender button h2 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 23px;
+  color: #c51211;
+}
+#titleContainer {
+  text-align: center;
+}
+#titleContainer h2 {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 23px;
+  color: #c51211;
+}
+#calendarForm {
+  display: flex;
+  justify-content: center;
+}
+#calendar {
+  background-color: #c52211;
+  box-shadow: 0 -2px 10px #c52211;
+  border: transparent;
+  padding: 15px;
+  border-radius: 300px;
+}
+#calendar h2 {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 23px;
+  color: #c51211;
 }

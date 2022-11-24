@@ -1,13 +1,4 @@
 let container = document.getElementById("EventContainer");
-const progressBarText = document.querySelector(".progress-bar__text");
-const progressBar = document.querySelector(".progress-bar");
-const progressBarContainer = document.querySelector(".progress-bar__container");
-progressBarText.style.display = "initial";
-progressBarContainer.style.boxShadow = "0 0 5px #4895ef";
-let progressValue = progressBar.innerText.split("%")[0];
-progressBarText.style.paddingLeft = progressValue *.9 + 20 + "%";
-progressBar.style.transform = "translate(" + progressValue + "%)";
-console.log(progressValue);
 let cMove = document.getElementById("c");
 let aMove = document.getElementById("a");
 let pMove = document.getElementById("p");

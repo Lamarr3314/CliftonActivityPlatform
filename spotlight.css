@@ -1,3 +1,9 @@
+html {
+  scroll-snap-type: y mandatory;
+}
+/* #SpotlightContainer { */
+/* scroll-snap-type: both mandatory; */
+/* } */
 .skill {
   width: 160px;
   height: 160px;
@@ -76,8 +82,9 @@ svg {
   -webkit-user-select: none;
   touch-action: manipulation;
   width: 280px;
-  height: 280px;
+  height: 280px; /*changeHere*/
   display: flex;
+  margin-top: -16px;
 }
 #newSpotlight {
   margin-top: 85px;
@@ -515,8 +522,8 @@ input:checked + .slider:before {
 }
 #contestant1Photo {
   border-radius: 180px;
-  width: 249px;
-  height: 249px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
 }
 #spotlightTitle {
@@ -613,7 +620,6 @@ input:checked + .slider:before {
 #rightDiv p {
   font-family: "League Spartan", sans-serif;
   font-size: 25px;
-  line-height: 1.4;
   text-shadow: 0px 0px 2px rgba(229, 141, 40, 0.7);
 }
 #contestantInfoDiv {
@@ -625,25 +631,41 @@ input:checked + .slider:before {
   margin-left: 17px;
   margin-top: 17px;
 }
-#contestants{
+#contestants {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-bottom: 10px;
 }
-#photoDiv{
+#photoDiv {
   display: flex;
   justify-content: center;
 }
-#contestant_name, #month{
-  text-align:center;
+#contestant_name,
+#month {
+  text-align: center;
 }
-#contestant_name{
+#contestant_name {
   font-size: 24px;
+  margin-top: 26px;
+  margin-bottom: 29px;
 }
-#awardTitle{
-  margin-bottom: 13px;
+#awardTitle {
+  margin-bottom: -29px;
+  margin-top: -1px;
 }
-#SpotlightContainer div{
+#SpotlightContainer div {
   margin-bottom: 10px;
+}
+#awardTitle {
+  scroll-snap-align: start;
+  scroll-snap-type: proximity;
+}
+#contestant_Description {
+  line-height: 1.03;
+  margin-top: -6px;
+}
+#month {
+  margin-top: -30px;
+  margin-bottom: -10px;
 }

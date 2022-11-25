@@ -36,10 +36,13 @@ let dark = false;
 let extDropDown = document.getElementById("extDropDown");
 let discoverBannerStop = document.querySelector("#discoverBanner h2");
 let mainItems = [eventMain, signInMain, spotlightMain, nameMain];
-discoverBannerStop.style.opacity = "0";
+let maxHeight = 0.0;
+discoverBannerStop.style.opacity = "0"; //Banner-Height: -87, award height=90% of maxheight
 navbar.style.borderBottomLeftRadius = "300px";
 navbar.style.borderBottomRightRadius = "300px";
 let moveItems = [cMove, aMove, pMove];
+let foundHeight = false;
+let spotlights = document.querySelectorAll("#newSpotlight");
 const States = {
   homePage: true,
   firstDrop: false,
@@ -51,6 +54,16 @@ window.addEventListener("load", function () {
     if (window.matchMedia("(min-width: " + i + "px)").matches) {
       maxWidth = i;
     }
+  }
+  for (let i = 0; i < 10000; i++) {
+    if (window.matchMedia("(min-height: " + i + "px)").matches) {
+      maxHeight = i;
+    }
+  }
+
+  for (let j = 0; j < spotlights.length; j++) {
+    spotlights[j].style.height = maxHeight - 87 - 40 + "px";
+    console.log(maxHeight - 87 - 10 + "px");
   }
   for (let i = 0.0; i < mainItems.length; i++) {
     mainItems[i].style.transform = "translateY(-75px)";
@@ -100,6 +113,7 @@ all.onclick = function () {
   window.location.href = "index.html";
   // save the selection in cookies, make api call
 };
+
 if (States.homePage) {
   eventMain.onclick = function () {
     for (let i = 0.0; i < mainItems.length; i++) {

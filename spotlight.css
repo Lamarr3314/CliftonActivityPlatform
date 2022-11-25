@@ -681,4 +681,7 @@ input:checked + .slider:before {
     padding-right: 0px;
     margin-right: -12px;
   }
+  html {
+    scroll-padding-top: 80px;
+  }
 }

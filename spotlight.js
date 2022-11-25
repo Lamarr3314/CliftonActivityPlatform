@@ -60,10 +60,14 @@ window.addEventListener("load", function () {
       maxHeight = i;
     }
   }
-
-  for (let j = 0; j < spotlights.length; j++) {
-    spotlights[j].style.height = maxHeight - 87 - 40 + "px";
-    console.log(maxHeight - 87 - 10 + "px");
+  if (maxWidth > 600) {
+    for (let j = 0; j < spotlights.length; j++) {
+      spotlights[j].style.height = maxHeight - 87 - 40 + "px";
+    }
+  } else {
+    for (let j = 0; j < spotlights.length; j++) {
+      spotlights[j].style.height = maxHeight - 53-50 + "px";
+    }
   }
   for (let i = 0.0; i < mainItems.length; i++) {
     mainItems[i].style.transform = "translateY(-75px)";

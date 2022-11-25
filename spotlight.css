@@ -1,9 +1,11 @@
 html {
   scroll-snap-type: y mandatory;
+  scroll-padding-top: 103px;
+  scroll-behavior: smooth;
 }
-/* #SpotlightContainer { */
-/* scroll-snap-type: both mandatory; */
-/* } */
+#SpotlightContainer {
+  /* scroll-snap-type: both mandatory; */
+}
 .skill {
   width: 160px;
   height: 160px;
@@ -438,6 +440,9 @@ input:checked + .slider:before {
   #title {
     justify-self: center;
     font-family: "Chakra Petch", sans-serif;
+  }
+  #contestant1Photo {
+    /*add a changing image width to fit the screen*/
   }
 }
 #Expanded h2,

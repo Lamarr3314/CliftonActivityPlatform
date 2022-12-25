@@ -5,6 +5,7 @@ let spefSportContainer;
 let spefSeasonContainer;
 let spefGenderContainer;
 let selectSeasonContainer;
+let minWidth;
 let selectGenderContainer;
 let trackProgressSport = false;
 let pressedEvent = false;
@@ -138,6 +139,16 @@ const States = {
   thirdDrop: false,
 };
 window.addEventListener("load", function () {
+  for (let i = 0; i < 10000; i++) {
+    if (window.matchMedia("(min-width: " + i + "px)").matches) {
+      maxWidth = i;
+    }
+  }
+  for (let i = 0; i < 10000; i++) {
+    if (window.matchMedia("(min-height: " + i + "px)").matches) {
+      maxHeight = i;
+    }
+  }
   for (let i = 0.0; i < mainItems.length; i++) {
     mainItems[i].style.transition = "opacity .1s";
     mainItems[i].style.opacity = "0";

@@ -2,6 +2,9 @@ let container = document.getElementById("EventContainer");
 let cMove = document.getElementById("c");
 let aMove = document.getElementById("a");
 let pMove = document.getElementById("p");
+let phoneNavBarExt = document.getElementById("phoneNavBarExt");
+let navBarSpaceDiv = document.getElementById("navBarSpaceDiv");
+let phoneMenu = document.getElementById("menu");
 let DarkMode = document.getElementById("DarkMode");
 let sportsDropDown = document.getElementById("SportsGames");
 let eventsDropDown = document.getElementById("events");
@@ -37,6 +40,16 @@ let extDropDown = document.getElementById("extDropDown");
 let discoverBannerStop = document.querySelector("#discoverBanner h2");
 let mainItems = [eventMain, signInMain, spotlightMain, nameMain];
 let maxHeight = 0.0;
+let phone_home = document.getElementById("phone_home");
+let phone_spotlight = document.getElementById("phone_spotlight");
+let phone_events = document.getElementById("phone_events");
+let phone_signIn = document.getElementById("phone_signIn");
+let first_phone_containter = [
+  phone_home,
+  phone_spotlight,
+  phone_events,
+  phone_signIn,
+];
 discoverBannerStop.style.opacity = "0"; //Banner-Height: -87, award height=90% of maxheight
 navbar.style.borderBottomLeftRadius = "300px";
 navbar.style.borderBottomRightRadius = "300px";
@@ -50,10 +63,11 @@ const States = {
   thirdDrop: false,
 };
 window.addEventListener("load", function () {
-  for (let i = 0; i < 10000; i++) {
+  for (let i = 0; i < 6000; i++) {
     if (window.matchMedia("(min-width: " + i + "px)").matches) {
       maxWidth = i;
     }
+    console.log(maxWidth);
   }
   for (let i = 0; i < 10000; i++) {
     if (window.matchMedia("(min-height: " + i + "px)").matches) {
@@ -66,7 +80,7 @@ window.addEventListener("load", function () {
     }
   } else {
     for (let j = 0; j < spotlights.length; j++) {
-      spotlights[j].style.height = maxHeight - 53-50 + "px";
+      spotlights[j].style.height = maxHeight - 53 - 50 + "px";
     }
   }
   for (let i = 0.0; i < mainItems.length; i++) {
@@ -309,3 +323,10 @@ infoPage.onclick = function () {
 function expandNavBar() {
   mainContainer.style.width = "100%";
 }
+phoneMenu.onclick = function () {
+  for(let i=0;i<first_phone_containter.length;i++){
+    first_phone_containter[i].style.transition = "all "+(1+(+i*.9))+"s";
+    first_phone_containter[i].style.transform = "none";
+  } 
+};
+//make the shits pop out at different times, to make a cascading effect=).

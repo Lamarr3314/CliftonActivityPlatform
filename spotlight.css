@@ -720,4 +720,5 @@ input:checked + .slider:before {
 }
 #firstDivSelection div h2{
   padding: 10px;
+  font-family: "Chakra Petch", sans-serif;
 }

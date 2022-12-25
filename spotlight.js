@@ -324,9 +324,28 @@ function expandNavBar() {
   mainContainer.style.width = "100%";
 }
 phoneMenu.onclick = function () {
-  for(let i=0;i<first_phone_containter.length;i++){
-    first_phone_containter[i].style.transition = "all "+((1+(+i*.9))+i*.7)+"s";
+  let transitionTime;
+  for (let i = 0; i < first_phone_containter.length; i++) {
+    switch (i) {
+      case 0:
+        transitionTime=.8;
+        break;
+      case 1:
+        transitionTime=1.7;
+        break;
+      case 2:
+        transitionTime=3.2;
+        break;
+      case 3:
+        transitionTime=5;
+        break;
+      default:
+        transitionTime=3;
+        break;
+    }
+    first_phone_containter[i].style.transition =
+      "all " + transitionTime + "s";
     first_phone_containter[i].style.transform = "none";
-  } 
+  }
 };
 //make the shits pop out at different times, to make a cascading effect=).

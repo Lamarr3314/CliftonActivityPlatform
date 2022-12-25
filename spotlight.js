@@ -50,6 +50,25 @@ let first_phone_containter = [
   phone_events,
   phone_signIn,
 ];
+class phoneMenuObj{
+  constructor(idName){
+    this.idName=idName;
+  }
+  getId(){
+    return this.idName;
+  }
+  nextOperation(){
+
+  }
+}
+class phoneMenuEndpoint{
+  constructor(hrefValue){
+    this.hrefValue=hrefValue;
+  }
+  nextOperation(){
+    window.location.href = this.hrefValue+".html";
+  }
+}
 discoverBannerStop.style.opacity = "0"; //Banner-Height: -87, award height=90% of maxheight
 navbar.style.borderBottomLeftRadius = "300px";
 navbar.style.borderBottomRightRadius = "300px";
@@ -62,6 +81,7 @@ const States = {
   secondDrop: false,
   thirdDrop: false,
 };
+
 window.addEventListener("load", function () {
   for (let i = 0; i < 6000; i++) {
     if (window.matchMedia("(min-width: " + i + "px)").matches) {
@@ -329,6 +349,7 @@ phoneMenu.onclick = function () {
     switch (i) {
       case 0:
         transitionTime=.8;
+        first_phone_containter[i].style.marginTop="20px";
         break;
       case 1:
         transitionTime=1.7;

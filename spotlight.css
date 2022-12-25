@@ -709,12 +709,14 @@ input:checked + .slider:before {
   text-align: center;
   border-radius: 50px;
   margin-bottom: -10px;
-  background-color: #dbc7a6de;
+  background-color: #dbc7a6;
+  box-shadow: 0 -2px 20px #dbc7a6;
 }
 #menu{
   background-color: transparent;
   border: none;
   z-index: 5;
+  font-family: "Chakra Petch", sans-serif;
 }
 #firstDivSelection div h2{
   padding: 10px;

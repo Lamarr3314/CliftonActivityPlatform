@@ -325,7 +325,7 @@ function expandNavBar() {
 }
 phoneMenu.onclick = function () {
   for(let i=0;i<first_phone_containter.length;i++){
-    first_phone_containter[i].style.transition = "all "+(1+(+i*.9))+"s";
+    first_phone_containter[i].style.transition = "all "+((1+(+i*.9))+i*.7)+"s";
     first_phone_containter[i].style.transform = "none";
   } 
 };

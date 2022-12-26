@@ -682,46 +682,47 @@ input:checked + .slider:before {
     scroll-padding-top: 80px;
   }
 }
-#phoneNavBarExt{
+#phoneNavBarExt {
   position: sticky;
   top: 0;
   z-index: 1;
   margin-top: 100px;
 }
-#navBarSpaceDiv{
-  padding-top: 45px;
-  z-index: -3;
-  position: inherit;
-}
-#firstDivSelection{
+#phoneNavBarExt div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
   display: block;
 }
-#firstDivSelection div{
-  transform: translateX(100%);
-  border-radius: 50px;
-  text-align: center;
-  border-radius: 50px;
-  margin-top: 9px;
-  background-color: #dbc7a6;
-  box-shadow: 0 -2px 10px #dbc7a6;
-  border: 1px solid #9c8d76;
-  padding: 7px;
+#phoneNavBarExt div div {
+  transform: translateX(130%);
 }
-#menu{
+#menu {
   background-color: transparent;
   border: none;
   z-index: 5;
   font-family: "Chakra Petch", sans-serif;
 }
-#firstDivSelection div h2{
+#firstDivSelection div h2 {
   font-family: "Chakra Petch", sans-serif;
-  padding: 0px;
-  margin: 3px;
+  padding: 3px;
+  margin: 0px;
 }
-#phone_home{
+#phone_home {
   margin-top: 17px;
+}
+#phoneNavBarExt div button {
+  border-radius: 50px;
+  text-align: center;
+  border-radius: 50px;
+  margin-top: 9px;
+  background-color: #dbc7a6;
+  box-shadow: 0 -2px 15px #dbc7a6;
+  border: 1px solid #9c8d76;
+  padding: 7px;
+  width: 100%;
+}
+#phoneNavBarExt div button h2 {
+  font-size: 25px;
 }

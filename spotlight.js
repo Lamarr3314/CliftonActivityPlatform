@@ -44,31 +44,42 @@ let phone_home = document.getElementById("phone_home");
 let phone_spotlight = document.getElementById("phone_spotlight");
 let phone_events = document.getElementById("phone_events");
 let phone_signIn = document.getElementById("phone_signIn");
+let phone_all_sports = document.getElementById("phone_all_sports");
+let phone_fall_sports = document.getElementById("phone_fall_sports");
+let phone_spring_sports = document.getElementById("phone_spring_sports");
+let phone_winter_sports = document.getElementById("phone_winter_sports");
+let phone_select_season = [
+  phone_fall_sports,
+  phone_spring_sports,
+  phone_winter_sports,
+  phone_all_sports,
+];
 let first_phone_containter = [
   phone_home,
   phone_spotlight,
   phone_events,
   phone_signIn,
 ];
-class phoneMenuObj{
-  constructor(idName){
-    this.idName=idName;
+class phoneMenuObj {
+  constructor(idName) {
+    this.idName = idName;
   }
-  getId(){
+  getId() {
     return this.idName;
   }
-  nextOperation(){
-
+  nextOperation() {}
+}
+class phoneMenuEndpoint {
+  constructor(hrefValue) {
+    this.hrefValue = hrefValue;
+  }
+  nextOperation() {
+    window.location.href = this.hrefValue + ".html";
   }
 }
-class phoneMenuEndpoint{
-  constructor(hrefValue){
-    this.hrefValue=hrefValue;
-  }
-  nextOperation(){
-    window.location.href = this.hrefValue+".html";
-  }
-}
+phone_spotlight.onclick = function () {
+  console.log("clicked spotlight");
+};
 discoverBannerStop.style.opacity = "0"; //Banner-Height: -87, award height=90% of maxheight
 navbar.style.borderBottomLeftRadius = "300px";
 navbar.style.borderBottomRightRadius = "300px";
@@ -343,30 +354,61 @@ infoPage.onclick = function () {
 function expandNavBar() {
   mainContainer.style.width = "100%";
 }
+popInPhoneMenu(first_phone_containter);
 phoneMenu.onclick = function () {
-  let transitionTime;
-  for (let i = 0; i < first_phone_containter.length; i++) {
-    switch (i) {
-      case 0:
-        transitionTime=.8;
-        first_phone_containter[i].style.marginTop="20px";
-        break;
-      case 1:
-        transitionTime=1.7;
-        break;
-      case 2:
-        transitionTime=3.2;
-        break;
-      case 3:
-        transitionTime=5;
-        break;
-      default:
-        transitionTime=3;
-        break;
-    }
-    first_phone_containter[i].style.transition =
-      "all " + transitionTime + "s";
-    first_phone_containter[i].style.transform = "none";
-  }
+  popOutPhoneMenu(first_phone_containter);
+  popInPhoneMenu(phone_select_season);
 };
 //make the shits pop out at different times, to make a cascading effect=).
+function popInPhoneMenu(directory) {
+  let transitionTime;
+  for (let i = 0; i < directory.length; i++) {
+    switch (i) {
+      case 0:
+        transitionTime = 0.8;
+        directory[i].style.marginTop = "60px";
+        break;
+      case 1:
+        transitionTime = 1.7;
+        break;
+      case 2:
+        transitionTime = 3.2;
+        break;
+      case 3:
+        transitionTime = 5;
+        break;
+      default:
+        transitionTime = 3;
+        break;
+    }
+    directory[i].style.transition = "all " + transitionTime + "s";
+    directory[i].style.transform = "none";
+  }
+}
+function popOutPhoneMenu(directory) {
+  //possible reverse transition speed so that the first element is slower and the last is faster
+  for (let i = 0; i < directory.length; i++) {
+    for (let i = 0; i < directory.length; i++) {
+      switch (i) {
+        case 0:
+          transitionTime = 0.8;
+          directory[i].style.marginTop = "20px";
+          break;
+        case 1:
+          transitionTime = 1.7;
+          break;
+        case 2:
+          transitionTime = 3.2;
+          break;
+        case 3:
+          transitionTime = 5;
+          break;
+        default:
+          transitionTime = 3;
+          break;
+      }
+      directory[i].style.transition = "all " + transitionTime + "s";
+      directory[i].style.transform = "translateX(110%)";
+    }
+  }
+}

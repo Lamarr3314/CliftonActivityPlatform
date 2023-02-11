@@ -104,7 +104,8 @@ svg {
   -webkit-user-select: none;
   touch-action: manipulation;
 }
-.sportsExp {
+.sportsExp,
+.myAccountExp {
   z-index: 4;
   top: 0;
   margin-top: -67px;
@@ -320,6 +321,7 @@ input:checked + .slider:before {
 #main h2,
 #Expanded h2,
 .sportsExp h2,
+.myAccountExp h2,
 #fallExp div h2 {
   text-align: center;
   color: black;
@@ -340,6 +342,7 @@ input:checked + .slider:before {
 #main h2:hover,
 #Expanded h2:hover,
 .sportsExp h2:hover,
+.myAccountExp h2:hover,
 #fallExp h2:hover,
 #springExp h2:hover {
   background-color: #e13c1c;
@@ -386,7 +389,7 @@ input:checked + .slider:before {
   padding-bottom: -10px;
   z-index: 2;
 }
-.sportsExp {
+.sportsExp, .myAccountExp {
   opacity: 0;
 }
 @media only screen and (max-width: 1600px) {
@@ -444,6 +447,7 @@ input:checked + .slider:before {
 }
 #Expanded h2,
 .sportsExp h2,
+.myAccountExp h2,
 #fallExp h2,
 #springExp h2 {
   padding-bottom: 8px;

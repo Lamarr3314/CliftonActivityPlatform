@@ -40,6 +40,7 @@ let extDropDown = document.getElementById("extDropDown");
 let discoverBannerStop = document.querySelector("#discoverBanner h2");
 let mainItems = [eventMain, signInMain, spotlightMain, nameMain];
 let maxHeight = 0.0;
+let myAccount = document.getElementById("signIn");
 let phone_home = document.getElementById("phone_home");
 let phone_spotlight = document.getElementById("phone_spotlight");
 let phone_events = document.getElementById("phone_events");
@@ -48,6 +49,42 @@ let phone_all_sports = document.getElementById("phone_all_sports");
 let phone_fall_sports = document.getElementById("phone_fall_sports");
 let phone_spring_sports = document.getElementById("phone_spring_sports");
 let phone_winter_sports = document.getElementById("phone_winter_sports");
+let phone_sports = document.getElementById("phone_sports");
+let phone_school = document.getElementById("phone_school");
+let phone_all = document.getElementById("phone_all");
+let signInExp=document.getElementById("expSignIn");
+let settingsExp=document.getElementById("expSettings");
+let createAccountExp=document.getElementById("expCreateAccount");
+let myAccountMenu=[signInExp, settingsExp, createAccountExp];
+let phone_fall_crossCountry = document.getElementById(
+  "phone_fall_crossCountry"
+);
+let phone_fall_football = document.getElementById("phone_fall_football");
+let phone_fall_soccer = document.getElementById("phone_fall_soccer");
+let phone_fall_tennis = document.getElementById("phone_fall_tennis");
+let phone_fall_volleyball = document.getElementById("phone_fall_volleyball");
+let phone_fall_cheer = document.getElementById("phone_fall_cheer");
+let phone_fall_all = document.getElementById("phone_fall_all");
+let phone_winter_cheer = document.getElementById("phone_winter_cheer");
+let phone_winter_basketball = document.getElementById(
+  "phone_winter_basketball"
+);
+let phone_winter_hockey = document.getElementById("phone_winter_hockey");
+let phone_winter_indoorTrack = document.getElementById(
+  "phone_winter_indoorTrack"
+);
+let phone_winter_swimming = document.getElementById("phone_winter_swimming");
+let phone_winter_wrestling = document.getElementById("phonw_winter_wrestling");
+let phone_winter_all = document.getElementById("phone_winter_all");
+let phone_spring_baseball = document.getElementById("phone_spring_baseball");
+let phone_spring_lacrosse = document.getElementById("phone_spring_lacrosse");
+let phone_spring_softball = document.getElementById("phone_spring_softball");
+let phone_spring_tennis = document.getElementById("phone_spring_tennis");
+let phone_spring_track = document.getElementById("phone_spring_track");
+let phone_spring_volleyball = document.getElementById(
+  "phone_spring_volleyball"
+);
+let phone_spring_football = document.getElementById("phone_spring_football");
 let phone_select_season = [
   phone_fall_sports,
   phone_spring_sports,
@@ -59,6 +96,35 @@ let first_phone_containter = [
   phone_spotlight,
   phone_events,
   phone_signIn,
+];
+let phone_select_event = [phone_sports, phone_school, phone_all];
+let phone_select_fall = [
+  phone_fall_crossCountry,
+  phone_fall_football,
+  phone_fall_soccer,
+  phone_fall_tennis,
+  phone_fall_volleyball,
+  phone_fall_cheer,
+  phone_fall_all,
+];
+let phone_select_winter = [
+  phone_winter_cheer,
+  phone_winter_basketball,
+  phone_winter_hockey,
+  phone_winter_indoorTrack,
+  phone_winter_swimming,
+  phone_winter_wrestling,
+  phone_winter_all,
+];
+let phone_select_spring = [
+  phone_spring_baseball,
+  phone_spring_lacrosse,
+  phone_spring_tennis,
+  phone_spring_softball,
+  phone_spring_tennis,
+  phone_spring_track,
+  phone_spring_volleyball,
+  phone_spring_football,
 ];
 class phoneMenuObj {
   constructor(idName) {
@@ -98,7 +164,6 @@ window.addEventListener("load", function () {
     if (window.matchMedia("(min-width: " + i + "px)").matches) {
       maxWidth = i;
     }
-    console.log(maxWidth);
   }
   for (let i = 0; i < 10000; i++) {
     if (window.matchMedia("(min-height: " + i + "px)").matches) {
@@ -161,6 +226,22 @@ allSports.onclick = function () {
 all.onclick = function () {
   window.location.href = "index.html";
   // save the selection in cookies, make api call
+};
+myAccount.onclick = function () {
+  moveHat(true);
+  for (let i = 0.0; i < mainItems.length; i++) {
+    mainItems[i].style.transform = "translateY(-75px)";
+    mainItems[i].style.transition =
+      "opacity " + ((i * 2) / 1) * 0.63 + "s, transform 10s";
+    mainItems[i].style.opacity = "0";
+    mainItems[i].disabled = true;
+  }
+  for (let i = 0.0; i < myAccountMenu.length; i++) {
+    myAccountMenu[i].style.transform = "translateY(75px)";
+    myAccountMenu[i].style.transition =
+      "opacity " + ((i * 2) / 1) * 0.63 + "s, transform 10s";
+    myAccountMenu[i].style.opacity = "1";
+  }
 };
 
 if (States.homePage) {

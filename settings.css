@@ -90,8 +90,8 @@ svg {
 }
 #newSpotlight {
   margin-top: 85px;
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-left: 6%;
+  margin-right: 6%;
   padding: 0.6em 2em;
   border: none;
   outline: none;
@@ -294,17 +294,17 @@ input:checked + .slider:before {
   -moz-transition: width 2s ease;
   transition: width 2s ease;
   /* clip-path: 
-    polygon(
-      0% 29%,
-      5% 0%,
-      94% 0%,
-      100% 29%,
-      100% 75%,
-      94% 100%,
-      5% 100%,
-      0 75%
-    ); 
-    */
+      polygon(
+        0% 29%,
+        5% 0%,
+        94% 0%,
+        100% 29%,
+        100% 75%,
+        94% 100%,
+        5% 100%,
+        0 75%
+      ); 
+      */
 }
 #logo:hover {
   cursor: grab;
@@ -691,7 +691,7 @@ input:checked + .slider:before {
     scroll-padding-top: 80px;
   }
 }
-#phoneNavBarExt {
+/* #phoneNavBarExt {
   position: sticky;
   top: 0;
   z-index: 1;
@@ -706,7 +706,7 @@ input:checked + .slider:before {
 }
 #phoneNavBarExt div div {
   transform: translateX(130%);
-}
+} */
 #menu {
   background-color: transparent;
   border: none;
@@ -718,10 +718,10 @@ input:checked + .slider:before {
   padding: 3px;
   margin: 0px;
 }
-#phone_home {
+/* #phone_home {
   margin-top: 17px;
-}
-#phoneNavBarExt div button {
+} */
+/* #phoneNavBarExt div button {
   border-radius: 50px;
   text-align: center;
   border-radius: 50px;
@@ -734,8 +734,20 @@ input:checked + .slider:before {
 }
 #phoneNavBarExt div button h2 {
   font-size: 25px;
-}
+} */
 .myAccountExp {
   z-index: 2;
   position: sticky;
+}
+.myAccountExp h2 {
+  font-size: 24px;
+}
+.myAccountExp div button {
+  border: none;
+  background-color: transparent;
+}
+#settingsTitle {
+  size: 30px;
+  text-align: center;
+  font-family: "Chakra Petch", sans-serif;
 }

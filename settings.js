@@ -54,7 +54,6 @@ let phone_sports = document.getElementById("phone_sports");
 let phone_school = document.getElementById("phone_school");
 let phone_all = document.getElementById("phone_all");
 let signInExp = document.getElementById("expSignIn");
-let settingsButton = document.getElementById("signInSettings");
 let settingsExp = document.getElementById("expSettings");
 let createAccountExp = document.getElementById("expCreateAccount");
 let myAccountMenu = [signInExp, settingsExp, createAccountExp];
@@ -145,9 +144,9 @@ class phoneMenuEndpoint {
     window.location.href = this.hrefValue + ".html";
   }
 }
-phone_spotlight.onclick = function () {
-  console.log("clicked spotlight");
-};
+// phone_spotlight.onclick = function () {
+//   console.log("clicked spotlight");
+// };
 discoverBannerStop.style.opacity = "0"; //Banner-Height: -87, award height=90% of maxheight
 navbar.style.borderBottomLeftRadius = "300px";
 navbar.style.borderBottomRightRadius = "300px";
@@ -181,7 +180,7 @@ window.addEventListener("load", function () {
       spotlights[j].style.height = maxHeight - 53 - 50 + "px";
     }
   }
-  for (let i = 0.0; i < mainItems.length; i++) {
+ for (let i = 0.0; i < mainItems.length; i++) {
     mainItems[i].style.transform = "translateY(-75px)";
     mainItems[i].style.transition =
       "opacity " + ((i * 2) / 1) * 0.63 + "s, transform 10s";
@@ -196,18 +195,18 @@ window.addEventListener("load", function () {
   discoverBannerStop.style.transform = "translateY(130px)";
   mainContainer.style.background = "none";
   discoverBannerStop.innerHTML =
-    'Spotlight the <span class="auto-type"></span>of Clifton';
+    'Personalize Your <span class="auto-type"></span>';
   var typed = new Typed(".auto-type", {
-    strings: ["Athletes", "Students", "Heart"],
+    strings: ["Accessibility", "Format", "Experience"],
     typeSpeed: 150,
-    backSpeed: 150,
+    backSpeed: 80,
     loop: false,
     startDelay: 2500,
     showCursor: true,
     onComplete: (self) => {
       setTimeout(function () {
         self.cursor.remove();
-        discoverBannerStop.innerHTML = "Spotlight the Heart of Clifton";
+        discoverBannerStop.innerHTML = "Personalize Your Experience";
         delete self;
       }, 1300);
     },
@@ -246,10 +245,7 @@ myAccount.onclick = function () {
     signInContainer.style.opacity = "1";
   }
 };
-settingsButton.onmouseover = function () {
-  console.log("OGGER");
-};
-settingsButton.onclick = function () {
+settingsExp.onclick = function () {
   window.location.href = "settings.html";
   console.log("Settings Clicked");
 };
@@ -363,7 +359,9 @@ function lightFunction() {
   }
 }
 function moveHat(forward) {
+    logo.style.transition = "opacity 4s, transform 4s";
   if (forward) {
+    
     logo.style.transform =
       "translateX(-" +
       (parseInt(maxWidth - 1000) + 450 - (maxWidth - 1000) / 2.25) +
@@ -444,61 +442,61 @@ infoPage.onclick = function () {
 function expandNavBar() {
   mainContainer.style.width = "100%";
 }
-popInPhoneMenu(first_phone_containter);
-phoneMenu.onclick = function () {
-  popOutPhoneMenu(first_phone_containter);
-  popInPhoneMenu(phone_select_season);
-};
+// popInPhoneMenu(first_phone_containter);
+// phoneMenu.onclick = function () {
+//   popOutPhoneMenu(first_phone_containter);
+//   popInPhoneMenu(phone_select_season);
+// };
 //make the shits pop out at different times, to make a cascading effect=).
-function popInPhoneMenu(directory) {
-  let transitionTime;
-  for (let i = 0; i < directory.length; i++) {
-    switch (i) {
-      case 0:
-        transitionTime = 0.8;
-        directory[i].style.marginTop = "60px";
-        break;
-      case 1:
-        transitionTime = 1.7;
-        break;
-      case 2:
-        transitionTime = 3.2;
-        break;
-      case 3:
-        transitionTime = 5;
-        break;
-      default:
-        transitionTime = 3;
-        break;
-    }
-    directory[i].style.transition = "all " + transitionTime + "s";
-    directory[i].style.transform = "none";
-  }
-}
-function popOutPhoneMenu(directory) {
-  //possible reverse transition speed so that the first element is slower and the last is faster
-  for (let i = 0; i < directory.length; i++) {
-    for (let i = 0; i < directory.length; i++) {
-      switch (i) {
-        case 0:
-          transitionTime = 0.8;
-          directory[i].style.marginTop = "20px";
-          break;
-        case 1:
-          transitionTime = 1.7;
-          break;
-        case 2:
-          transitionTime = 3.2;
-          break;
-        case 3:
-          transitionTime = 5;
-          break;
-        default:
-          transitionTime = 3;
-          break;
-      }
-      directory[i].style.transition = "all " + transitionTime + "s";
-      directory[i].style.transform = "translateX(110%)";
-    }
-  }
-}
+// function popInPhoneMenu(directory) {
+//   let transitionTime;
+//   for (let i = 0; i < directory.length; i++) {
+//     switch (i) {
+//       case 0:
+//         transitionTime = 0.8;
+//         directory[i].style.marginTop = "60px";
+//         break;
+//       case 1:
+//         transitionTime = 1.7;
+//         break;
+//       case 2:
+//         transitionTime = 3.2;
+//         break;
+//       case 3:
+//         transitionTime = 5;
+//         break;
+//       default:
+//         transitionTime = 3;
+//         break;
+//     }
+//     directory[i].style.transition = "all " + transitionTime + "s";
+//     directory[i].style.transform = "none";
+//   }
+// }
+// function popOutPhoneMenu(directory) {
+//   //possible reverse transition speed so that the first element is slower and the last is faster
+//   for (let i = 0; i < directory.length; i++) {
+//     for (let i = 0; i < directory.length; i++) {
+//       switch (i) {
+//         case 0:
+//           transitionTime = 0.8;
+//           directory[i].style.marginTop = "20px";
+//           break;
+//         case 1:
+//           transitionTime = 1.7;
+//           break;
+//         case 2:
+//           transitionTime = 3.2;
+//           break;
+//         case 3:
+//           transitionTime = 5;
+//           break;
+//         default:
+//           transitionTime = 3;
+//           break;
+//       }
+//       directory[i].style.transition = "all " + transitionTime + "s";
+//       directory[i].style.transform = "translateX(110%)";
+//     }
+//   }
+// }

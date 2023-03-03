@@ -11,18 +11,24 @@
       href="https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Dosis:wght@500&family=Lato:wght@300&family=Rubik+Glitch&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Dosis:wght@500&family=Lato:wght@300&family=League+Spartan:wght@500&family=Rock+Salt&family=Rubik+Glitch&display=swap"
-      rel="stylesheet"
-    />
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12" defer></script>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="settings.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Rubik+Glitch&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cardo&family=Old+Standard+TT&family=Urbanist:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cardo&family=Old+Standard+TT&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Old+Standard+TT&display=swap"
       rel="stylesheet"
     />
     <link
@@ -36,7 +42,7 @@
       href="https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Dosis:wght@500&family=Lato:wght@300&family=League+Spartan:wght@500&family=Rubik+Glitch&display=swap"
       rel="stylesheet"
     />
-    <script defer src="script.js"></script>
+    <script defer src="settings.js"></script>
   </head>
   <body>
     <div id="navbar">
@@ -49,13 +55,13 @@
       </div>
       <div class="myAccountExp">
         <div id="expSignIn">
-          <h2>Sign In</h2>
+          <button><h2>Sign In</h2></button>
         </div>
         <div id="expCreateAccount">
-          <h2>Create Account</h2>
+          <button><h2>Create Account</h2></button>
         </div>
         <div id="expSettings">
-          <h2>Settings</h2>
+          <button><h2>Settings</h2></button>
         </div>
       </div>
 
@@ -170,7 +176,7 @@
       </div>
     </div>
     <div id="phonenavbar">
-      <img id="menu" src="images/002-menu.png" alt="menu" />
+      <button id="menu"><img src="images/002-menu.png" alt="menu" /></button>
       <h2 id="title">Clifton Activity Portal</h2>
       <img id="phonelogo" src="images/CAPlogo.png" alt="CAPLogo" />
     </div>
@@ -179,35 +185,128 @@
       <span class="slider round"></span>
     </label>
     <div id="navBarSpace"></div>
-    <div id="addEvent">
-      <div id="preset">
-        <div id="addIcon">
-          <img src="images/add.png" alt="add" />
+    <!-- <div id="phoneNavBarExt">
+      <div id="firstDivSelection">
+        <div id="phone_home">
+          <button><h2>Clifton Activity Portal</h2></button>
         </div>
-        <div id="introText">
-          <h2>Add Event</h2>
+        <div id="phone_spotlight">
+          <button><h2>Spotlight</h2></button>
+        </div>
+        <div id="phone_events">
+          <button id="phone_events_button"><h2>Events</h2></button>
+        </div>
+        <div id="phone_signIn">
+          <button><h2>Sign In</h2></button>
         </div>
       </div>
+      <div id="secondDivSelection">
+        <div id="phone_sports">
+          <button><h2>Sports</h2></button>
+        </div>
+        <div id="phone_school">
+          <button><h2>School Wide Events</h2></button>
+        </div>
+        <div id="phone_all">
+          <button><h2>All</h2></button>
+        </div>
+      </div>
+      <div id="thirdDivSelection">
+        <div id="phone_fall_sports">
+          <button><h2>Fall</h2></button>
+        </div>
+        <div id="phone_spring_sports">
+          <button><h2>Spring</h2></button>
+        </div>
+        <div id="phone_winter_sports">
+          <button><h2>Winter</h2></button>
+        </div>
+        <div id="phone_all_sports">
+          <button><h2>All</h2></button>
+        </div>
+      </div> -->
+    <!-- <div id="fallSportsSelection">
+      <div id="phone_fall_crossCountry">
+        <button><h2>Cross Country</h2></button>
+      </div>
+      <div id="phone_fall_football">
+        <button><h2>Football</h2></button>
+      </div>
+      <div id="phone_fall_soccer">
+        <button><h2>Soccer</h2></button>
+      </div>
+      <div id="phone_fall_tennis">
+        <button><h2>Tennis</h2></button>
+      </div>
+      <div id="phone_fall_volleyball">
+        <button><h2>Volleyball</h2></button>
+      </div>
+      <div id="phone_fall_cheer">
+        <button><h2>Cheer</h2></button>
+      </div>
+      <div id="phone_fall_all">
+        <button><h2>All</h2></button>
+      </div>
     </div>
-    <div id="EventContainer"></div>
+    <div id="winterSportsSelection">
+      <div id="phone_winter_cheer">
+        <button><h2>Cheer</h2></button>
+      </div>
+      <div id="phone_winter_basketball">
+        <button><h2>Basketball</h2></button>
+      </div>
+      <div id="phone_winter_hockey">
+        <button><h2>Ice Hockey</h2></button>
+      </div>
+      <div id="phone_winter_indoorTrack">
+        <button><h2>Indoor Track</h2></button>
+      </div>
+      <div id="phone_winter_swimming">
+        <button><h2>Swimming</h2></button>
+      </div>
+      <div id="phone_winter_wrestling">
+        <button><h2>Wrestling</h2></button>
+      </div>
+      <div id="phone_winter_all">
+        <button><h2>All</h2></button>
+      </div>
+    </div> -->
+    <!-- <div id="signInExp">
+      <div id="signInSignIn">
+        <button><h2>Sign In</h2></button>
+      </div>
+      <div id="signInSettings">
+        <button><h2>Settings</h2></button>
+      </div>
+      <div id="signInCreateAccount">
+        <button><h2>Create Account</h2></button>
+      </div> -->
+    <!-- </div> -->
+    <!-- <div id="springSportsSelection">
+      <div id="phone_spring_baseball">
+        <button><h2>Baseball</h2></button>
+      </div>
+      <div id="phone_spring_lacrosse">
+        <button><h2>Lacrosse</h2></button>
+      </div>
+      <div id="phone_spring_softball">
+        <button><h2>Softball</h2></button>
+      </div>
+      <div id="phone_spring_tennis">
+        <button><h2>Tennis</h2></button>
+      </div>
+      <div id="phone_spring_track">
+        <button><h2>Track</h2></button>
+      </div>
+      <div id="phone_spring_volleyball">
+        <button><h2>Volleyball</h2></button>
+      </div>
+      <div id="phone_spring_football">
+        <button><h2>Football</h2></button>
+      </div>
+    </div> -->
+    <div id="newSpotlight">
+      <div id=""></div>
+    </div>
   </body>
 </html>
-<!--Imbed tiktok videos into the website when clicking on the event-->
-<!--Some sort of graphical component - football image, soccer image, etc.
-Contact school to see how responsive they are(?) - Wait till final presentation and have everything built out
-Add in Facebook/Instagram/Twitter share integration - button for sharing event on platform
-https://www.facebook.com/sharer.php?u=(url) https://twitter.com/share?url=(url)/&text=(text)
-TikTok video fetching (get videos via hashtag)
-https://developers.tiktok.com/doc/embed-videos/
-Could use a generic hashtag for demo purposes
-If there’s time:
-Have basic database example set up for website
-Google Calendar/Google Maps integration
-Eventbrite/RSVP integration 
-Lineup for teams
-Student/coach login for customization
-Feed for the user to see all of their favorite events
-Cross country looks like on one side, Clifton's score and then the top five runners on the left
-when going one link in, use the forward motion, going back rotate the logo backwards
-have a sign in for coaches or students or teachers
--->
